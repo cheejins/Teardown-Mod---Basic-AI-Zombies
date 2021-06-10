@@ -165,6 +165,7 @@ function createZombie(body, id) -- Create zombie.
     zombie.runTimers = function()
         zombie.timers.sfx.damage.timer = zombie.timers.sfx.damage.timer - GetTimeStep()
         zombie.timers.sfx.growl.timer = zombie.timers.sfx.growl.timer - GetTimeStep()
+        zombie.timers.sfx.growl.timer = zombie.timers.sfx.growl.timer - GetTimeStep()
     end
 
     zombie.sounds = {
@@ -252,7 +253,17 @@ function addZombieFunctions(zombie)
     zombie.raycastNavigate = function ()
 
         local zTr = zombie.getTr()
-        if zombie.isVelLow() then
+
+        -- Move values.
+        local speed = zombie.movement.speed
+        local hop = zombie.movement.hop
+        local jump = zombie.movement.jump
+        local JumpSpeed = zombie.movement.jumpSpeed
+
+        -- -- Timed for performance
+        -- if navigationTimer.time <= 0 then
+        --     navigationTimer.time = 60/navigationTimer.rpm
+
 
             -- Raycast center fwd (walk fwd).
             local rc = {
@@ -288,76 +299,76 @@ function addZombieFunctions(zombie)
                 hitPosUpper = nil
             end
 
-            QueryRejectBody(zombie.body)
-            local hitClosest, hitPosClosest, normClosest, hitShapeClosest = QueryClosestPoint(rc.closest.tr.pos, rc.closest.dist)
-            if hitClosest and not HasTag(GetShapeBody(hitShapeClosest),'ai_zombie') then
-            else
-                hitClosest = nil
-            end
+            -- QueryRejectBody(zombie.body)
+            -- local hitClosest, hitPosClosest, normClosest, hitShapeClosest = QueryClosestPoint(rc.closest.tr.pos, rc.closest.dist)
+            -- if hitClosest and not HasTag(GetShapeBody(hitShapeClosest),'ai_zombie') then
+            -- else
+            --     hitClosest = nil
+            -- end
 
 
             local zombieBodyCollision = HasTag(GetShapeBody(hitShapeLower),'ai_zombie')
-            local hitShapeVelLow = VecLength(GetBodyVelocity(GetShapeBody(hitShapeUpper or hitShapeLower))) < 5
+            local hitShapeVelLow = VecLength(GetBodyVelocity(GetShapeBody(hitShapeUpper or hitShapeLower))) < 10
+
 
             -- Obstacle decisions.
             local path = {
                 walk = (not hitLower) and (not hitUpper) and isZombieOnGround(zombie),
                 jump = (hitLower and not hitUpper) and (not zombieBodyCollision) and isZombieOnGround(zombie),
-                blocked = ((hitLower and hitUpper) or hitUpper) and not zombieBodyCollision and hitShapeVelLow,
-                stuck = hitClosest
+                blocked = ((hitLower and hitUpper) or hitUpper) and not zombieBodyCollision and hitShapeVelLow and GetShapeSize(hitShapeUpper) > 5,
+                -- stuck = hitClosest
             }
 
-            -- Move values.
-            local speed = zombie.movement.speed
-            local hop = zombie.movement.hop
-            local jump = zombie.movement.jump
-            local JumpSpeed = zombie.movement.jumpSpeed
 
-            if isZombieOnGround(zombie) then
+            -- Free zombie from being stuck
+            -- if path.stuck then
+            --     zombieMoveWalk(zombie, 3, 1)
+            --     zombieLookAt(zombie, zombie.ai.targetPos, 0.2)
+            -- end
 
-                if path.stuck then
-                    zombieMoveWalk(zombie, 3, 1)
-                    zombieLookAt(zombie, zombie.ai.targetPos, 0.2)
-                end
+            -- Movement
+            if path.jump then
 
-                if path.jump then
-                    zombie.ai.pathing.status = "Jumping"
-
-                    -- Jump
-                    zombieMoveWalk(zombie, JumpSpeed, jump)
-
-                elseif path.blocked and GetShapeSize(hitShapeUpper) then
-                    zombie.ai.pathing.status = "Blocked"
-
-                    -- Side movement based on center of shape.
-                    local sMin, sMax = GetShapeBounds(hitShapeUpper)
-                    local shapeCenter = VecLerp(sMin, sMax, 0.5)
-                    local sidePos = TransformToLocalPoint(zTr, shapeCenter)
-                    if sidePos[1] <= 0 then sidePos[1] = -1 else sidePos[1] = 1 end
-
-                    -- Smaller movement for zombies blocking zombies to prevent fast collisions.
-                    local isZombyBody = HasTag(GetShapeBody(hitShapeLower),'ai_zombie') or HasTag(GetShapeBody(hitShapeUpper),'ai_zombie')
-
-
-                    -- Move zombie.
-                    
-                    if isZombyBody then
-                        zombieMoveWalk(zombie, speed * 0.7, hop, sidePos[1])
-                    else
-                        zombieMoveWalk(zombie, -speed/5, hop/2, sidePos[1] * 2)
-                    end
-
+                -- zombie.ai.pathing.status = "Jumping"
+                if CalcDist(rc.lower.tr.pos, hitShapeLower) < JumpSpeed then
+                    zombieMoveWalk(zombie, -speed/2, jump) -- Back up
                 else
-                    -- Walk
-                    zombieMoveWalk(zombie, speed, hop)
-                    zombieLookAt(zombie, zombie.ai.targetPos, zombie.movement.lookRate)
+                    zombieMoveWalk(zombie, JumpSpeed, jump) -- Jump forward
                 end
+
+            elseif path.blocked then
+
+                -- zombie.ai.pathing.status = "Blocked"
+
+                -- Side movement based on center of shape.
+                local sMin, sMax = GetShapeBounds(hitShapeUpper)
+                local shapeCenter = VecLerp(sMin, sMax, 0.5)
+                local sidePos = TransformToLocalPoint(zTr, shapeCenter)
+                if sidePos[1] <= 0 then sidePos[1] = -1 else sidePos[1] = 1 end
+
+                -- Smaller movement for zombies blocking zombies to prevent fast collisions.
+                local isZombyBody = HasTag(GetShapeBody(hitShapeLower),'ai_zombie') or HasTag(GetShapeBody(hitShapeUpper),'ai_zombie')
+
+                -- Move zombie.
+                if isZombyBody then
+                    zombieMoveWalk(zombie, speed * 0.7, hop, sidePos[1])
+                else
+                    zombieMoveWalk(zombie, -speed/5, hop/2, sidePos[1] * 2)
+                end
+
+            else
+                -- Walk
+                zombieMoveWalk(zombie, speed, hop)
+                zombieLookAt(zombie, zombie.ai.targetPos, zombie.movement.lookRate)
             end
 
-        end
+        -- else -- navigation timer counting down
 
-        zombieLookAt(zombie, zombie.ai.targetPos, 1)
-        zombieKeepUpright(zombie)
+        --     -- Walk
+        --     zombieMoveWalk(zombie, speed, hop)
+        --     zombieLookAt(zombie, zombie.ai.targetPos, zombie.movement.lookRate)
+
+        -- end
 
     end
 

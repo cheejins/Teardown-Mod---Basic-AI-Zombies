@@ -14,7 +14,7 @@ function initBoids()
     boidsData = {
         timer = { -- boid execution timed for performance.
             time = 0,
-            rpm = 1300,
+            rpm = 200,
         },
         obstacles = {
             count = 0,

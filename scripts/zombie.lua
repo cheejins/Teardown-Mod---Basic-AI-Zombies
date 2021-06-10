@@ -1,5 +1,4 @@
 #include "scripts/boids.lua"
-#include "scripts/pathFinding.lua"
 #include "scripts/utility.lua"
 #include "scripts/zombieController.lua"
 #include "scripts/zombieConstructor.lua"
@@ -13,8 +12,8 @@
 -- This script handles the movement, actions and AI of the zombie.
 -- ----------------------------------------------------------------------------------------------------
 
-
 zombiesTable = {}
+
 
 function initZombies()
     local zombieBodies = FindBodies("ai_zombie", true)
@@ -33,6 +32,7 @@ function manageZombies()
         manageZombie(zombie)
     end
     processBoids()
+    navigationTimer.runTimerConst()
 end
 
 
@@ -47,7 +47,6 @@ function manageZombie(zombie)
         end
     end
 end
-
 
 
 --[[AI BEHAVIOR]]
@@ -65,7 +64,7 @@ function zombieProcessAi(zombie)
     if zombie.ai.state ~= zombie.ai.states.attacking then
         zombie.timers.attack.chargeUp.time = zombie.timers.attack.chargeUp.deafult
         zombie.sounds.chargeUpPlayed = false
-        DebugPrint('reset chargeup')
+        -- DebugPrint('reset chargeup')
     end
 
     zombie.manageHealth()
@@ -109,7 +108,12 @@ stateFunctions = {
         zombie.outlineColor = colors.black
 
         local speed = 0
-        zombieChaseTarget(zombie, speed)
+        -- zombieChaseTarget(zombie, speed)
+        if isZombieOnGround(zombie) and zombie.isVelLow() then
+            zombieMoveWalk(zombie, 0, 1.5) -- hop in place
+            zombieKeepUpright(zombie)
+        end
+
     end,
 
     -- idle = function(zombie) end,
@@ -140,14 +144,6 @@ stateFunctions = {
     end,
 
 }
-
-function zombieDie(zombie)
-    zombie.ai.isActive = false -- Disable dead zombie's ai.
-    if zombie:isAlive() == false then
-        sounds.play.death(zombie) -- Death sound.
-        zombie.ai.isAlive = false
-    end
-end
 
 
 --[[ZOMBIE MOVEMENT]]
@@ -218,7 +214,7 @@ function zombieAttackPlayer(zombie)
     -- Charge up hit.
     if zombie.timers.attack.chargeUp.timer <= 0 then -- charge up timer.
 
-        DebugPrint('Charging'..sfnTime())
+        -- DebugPrint('Charging'..sfnTime())
 
         -- Hit player
         if zombie.timers.attack.hit.timer <= 0 then -- attack timer.
@@ -237,7 +233,7 @@ function zombieAttackPlayer(zombie)
             -- Hit player
             if zombieToPlayerDist < zombie.ai.attacking.distance then
                 SetPlayerHealth(GetPlayerHealth() - zombie.ai.attacking.damage) -- Decrease player health.
-                DebugPrint('hit'..sfnTime())
+                -- DebugPrint('hit'..sfnTime())
                 sounds.play.hit(zombie)
             end
 
@@ -262,21 +258,43 @@ end
 
 function zombieChaseTarget(zombie, speed)
 
-    if isZombieOnGround(zombie) and zombie.isVelLow() then
-        local zVel = GetBodyVelocity(zombie.body)
+    if zombie.isVelLow() then
 
-        zombie.movement.speed = speed
-        zombie.raycastNavigate()
+        -- Keep zombie stable
+        zombieLookAt(zombie, zombie.ai.targetPos, 0.3)
+        zombieKeepUpright(zombie)
 
-        if boidsData.timer.time <= 0 then -- Timed for performance.
-            boidsData.timer.time = 60/boidsData.timer.rpm
+        if isZombieOnGround(zombie) then
+            local zVel = GetBodyVelocity(zombie.body)
 
-            zombie.boidsNavigate()
+            zombie.movement.speed = speed
+            zombie.raycastNavigate()
+
+            if boidsData.timer.time <= 0 then -- Timed for performance.
+                boidsData.timer.time = 60/boidsData.timer.rpm
+
+                zombie.boidsNavigate()
+            end
+
+            local zVelRaycast = GetBodyVelocity(zombie.body)
+            local zVelLerp = VecLerp(zVel, zVelRaycast, 0.5)
+            SetBodyVelocity(zombie.body, zVelLerp)
         end
 
-        local zVelRaycast = GetBodyVelocity(zombie.body)
-        local zVelLerp = VecLerp(zVel, zVelRaycast, 0.5)
-        SetBodyVelocity(zombie.body, zVelLerp)
     end
 
 end
+
+
+-- [[ZOMBIE MISC]]
+function zombieDie(zombie)
+    zombie.ai.isActive = false -- Disable dead zombie's ai.
+    if zombie:isAlive() == false then
+        sounds.play.death(zombie) -- Death sound.
+        zombie.ai.isAlive = false
+    end
+end
+
+-- Times when to process zombie navigation for better performance.
+navigationTimer = { time = 0, rpm = 5000,}
+navigationTimer.runTimerConst = function() navigationTimer.time = navigationTimer.time - GetTimeStep() end

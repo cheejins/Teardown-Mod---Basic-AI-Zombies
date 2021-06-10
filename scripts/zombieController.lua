@@ -48,13 +48,16 @@ function runZombieController()
         end
 
     elseif zombieController.isActive == false then -- not using controller..
-
         for i = 1, #zombiesTable do
             zombiesTable[i].ai.targetPos = game.ppos
         end
-
     end
 
+    zcLight()
+
+end
+
+function zcLight()
     if zombieController.isActive then -- Point light only when controller target active.
         PointLight(VecAdd(zombieController.pos, Vec(0,1,0)), 0, 1, 0, 3)
         DebugLine((zombieController.pos), VecAdd(zombieController.pos, Vec(0,10,0)), 0.5, 1, 0.5)

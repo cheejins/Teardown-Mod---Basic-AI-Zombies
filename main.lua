@@ -89,7 +89,6 @@ function initMod()
             min = Vec(-2,0,-2),
             max = Vec(2,2,2),
         },
-        -- pickedUpTools = {"m4a1", "glock"}
     }
 
     sounds = {
@@ -147,6 +146,7 @@ end
 
 
 --[[MAP]]
+-- Zombies can be activated by triggers. Make sure the trigger has the tag trigger with a value of whatever you'd like. ex: trig=start, trig=forest
 function initMap()
     SCRIPTED_MAP = false
     map = {
