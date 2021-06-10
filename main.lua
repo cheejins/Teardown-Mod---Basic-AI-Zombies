@@ -40,10 +40,10 @@ function tick()
     runZombieRadar()
 
     -- Map.
-    disableTools()
+    -- disableTools()
 
     -- Debug.
-    debugMod()
+    -- debugMod()
 
 end
 

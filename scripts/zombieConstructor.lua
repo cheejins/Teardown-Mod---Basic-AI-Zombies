@@ -19,7 +19,6 @@ function createZombie(body, id) -- Create zombie.
     --[[LIMBS]]
     zombie.limbs = {
         brain = nil,
-        
         head = nil,
         neck = nil,
         body = nil,
@@ -30,31 +29,24 @@ function createZombie(body, id) -- Create zombie.
         legs = nil,
     }
     for i = 1, #zombie.shapes do
-
         local shape = zombie.shapes[i]
-
         if HasTag(shape,"z_head") then
             zombie.limbs.head = shape
-
         elseif HasTag(shape,"z_brain") then
             zombie.limbs.brain = shape
-
         elseif HasTag(shape,"z_neck") then
             zombie.limbs.neck = shape
-
         elseif HasTag(shape,"z_body") then
             zombie.limbs.body = shape
-
         elseif HasTag(shape,"z_arm_left") then
             zombie.limbs.arms.left = shape
-
         elseif HasTag(shape,"z_arm_right") then
             zombie.limbs.arms.right = shape
-
         elseif HasTag(shape,"z_legs") then
             zombie.limbs.legs = shape
         end
     end
+
 
     --[[AI]]
     zombie.health = 100
@@ -74,8 +66,8 @@ function createZombie(body, id) -- Create zombie.
         detection = {
             distances = {
                 idle = math.huge,
-                seeking = 80,
-                chasing = 30,
+                seeking = 150,
+                chasing = 50,
                 attacking = 4,
             },
         },

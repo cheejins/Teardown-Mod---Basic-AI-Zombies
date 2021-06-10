@@ -19,8 +19,9 @@ local zr = {
 }
 
 
-
 function runZombieRadar()
+
+    positionRadar()
 
     UiPush()
 
@@ -67,4 +68,30 @@ function runZombieRadar()
 
     UiPop()
 
+end
+
+
+function positionRadar()
+
+    -- local corner = GetString('MOD.radar.corner')
+    local corner = 'bottomRight'
+
+    local w = zr.static.bounds.width
+    local h = zr.static.bounds.height
+    local translate = {0,0}
+
+    if corner == 'topLeft' then
+
+    elseif corner == 'topRight' then
+        translate[1] = UiWidth() - w
+
+    elseif corner == 'bottomLeft' then
+        translate[2] = UiHeight() - h
+
+    elseif corner == 'bottomRight' then
+        translate[1] = UiWidth() - w
+        translate[2] = UiHeight() - h
+    end
+
+    UiTranslate(translate[1], translate[2])
 end

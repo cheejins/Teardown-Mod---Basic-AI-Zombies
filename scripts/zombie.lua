@@ -68,16 +68,7 @@ function zombieProcessAi(zombie)
         DebugPrint('reset chargeup')
     end
 
-    -- -- Growl sfx timer
-    -- if zombie.timers.sfx.growl.timer <= 0 then
-    --     zombie.timers.sfx.growl.timer = 60/zombie.timers.sfx.growl.rpm
-    --     sounds.play.growl(zombie)
-    -- else
-    --     zombie.timers.sfx.growl.timer = zombie.timers.sfx.growl.timer - GetTimeStep()
-    -- end
-
     zombie.manageHealth()
-
     zombie.runTimers()
     zombie.drawOutline()
 
@@ -184,7 +175,6 @@ end
 
 
 function zombieLookAt(zombie, targetPos, rate)
-
     local zTr = zombie.getTr()
     local zTrNew = TransformCopy(zTr)
 
@@ -264,11 +254,8 @@ function zombieAttackPlayer(zombie)
 
     -- Play sounds once per chargeup.
     if zombie.sounds.chargeUpPlayed == false then
-        -- if zombie.timers.sfx.growl.timer <= 0 then -- attack timer.
-        --     zombie.timers.sfx.growl.timer = 60/zombie.timers.sfx.growl.rpm
-            zombie.sounds.chargeUpPlayed = true
-            sounds.play.growl(zombie)
-        -- end
+        zombie.sounds.chargeUpPlayed = true
+        sounds.play.growl(zombie)
     end
 
 end
@@ -281,50 +268,15 @@ function zombieChaseTarget(zombie, speed)
         zombie.movement.speed = speed
         zombie.raycastNavigate()
 
-        -- if boidsData.timer.time <= 0 and zombie.isVelLow() then -- Timed for performance.
-            -- boidsData.timer.time = 60/boidsData.timer.rpm
+        if boidsData.timer.time <= 0 then -- Timed for performance.
+            boidsData.timer.time = 60/boidsData.timer.rpm
 
-            -- zombie.boidsNavigate()
-        -- end
+            zombie.boidsNavigate()
+        end
 
         local zVelRaycast = GetBodyVelocity(zombie.body)
         local zVelLerp = VecLerp(zVel, zVelRaycast, 0.5)
         SetBodyVelocity(zombie.body, zVelLerp)
     end
-
-
-end
-
-
-
--- Called in draw
-function zombieDrawHealthBar(zombie)
-
-    UiPush()
-
-        local bodyMin, bodyMax = GetBodyBounds(zombie.body)
-        local bodyCenter = VecLerp(bodyMin, bodyMax, 0.5)
-        local bodyCenterTop = Vec(bodyCenter[1], bodyMax[2], bodyCenter[3])
-
-        local x, y, dist = UiWorldToPixel(bodyCenterTop)
-        if dist < 15 then
-
-            UiTranslate(x, y)
-
-            local pad = 1
-            local spBarW = 50
-            local spBarH = 6
-            local health
-            local sptBarVal = spBarW/(zombie.mass.start/st.amt)
-
-            UiColor(0,0,0) -- bar bg
-            UiRect(spBarW+pad, spBarH)
-
-            UiColor(1,1/stFac,1/stFac) -- bar fill
-            UiTranslate(pad/2,pad/2)
-            UiRect(sptBarVal, spBarH-pad)
-
-        end
-    UiPop()
 
 end

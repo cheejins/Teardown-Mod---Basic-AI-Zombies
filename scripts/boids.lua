@@ -1,6 +1,5 @@
 #include "utility.lua"
 
-
 -- ====================================================================================================
 -- Zombie AI - by: Cheejins
 -- ====================================================================================================
@@ -15,7 +14,7 @@ function initBoids()
     boidsData = {
         timer = { -- boid execution timed for performance.
             time = 0,
-            rpm = 600,
+            rpm = 1300,
         },
         obstacles = {
             count = 0,
@@ -25,7 +24,7 @@ function initBoids()
         radius = {
             align = 3,
             cohesion = 0,
-            separation = 2.5,
+            separation = 3.5,
             obstacle = 5,
         },
         strength = { -- Scaled boid output
@@ -152,7 +151,6 @@ function computeSeparation(boid, boids, targetPos, scale)
         return vel
     end
 
-
     vel[1] = -vel[1]
     vel[2] = 0
     vel[3] = -vel[3]
@@ -198,7 +196,7 @@ end
 
 function processBoids()
     populateObstacles()
-    displayObstacles()
+    -- displayObstacles()
     boidsData.timer.time = boidsData.timer.time - GetTimeStep()
 end
 
