@@ -14,7 +14,7 @@ function initBoids()
     boidsData = {
         timer = { -- boid execution timed for performance.
             time = 0,
-            rpm = 500,
+            rpm = 300,
         },
         obstacles = {
             count = 0,
@@ -24,13 +24,13 @@ function initBoids()
         radius = {
             align = 3,
             cohesion = 0,
-            separation = 3.5,
+            separation = 4,
             obstacle = 5,
         },
         strength = { -- Scaled boid output
             align = 0.4,
             cohesion = 1,
-            separation = 1.2,
+            separation = 1.5,
             obstacle = 0.75,
         }
     }

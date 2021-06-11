@@ -104,8 +104,8 @@ function createZombie(body, id) -- Create zombie.
         isOnGround = false,
         speed = 7,
         speeds = {
-            walk = 3,
-            run = 7,
+            walk = 2.5,
+            run = 6,
             attacking = 4,
             random = randomSpeed,
         },
@@ -246,7 +246,8 @@ function addZombieFunctions(zombie)
 
     zombie.drawOutline = function()
         local c = VecCopy(zombie.outlineColor)
-        DrawBodyOutline(zombie.body, c[1], c[2], c[3], 1)
+        local a = 4/CalcDist(zombie.getPos(), GetPlayerTransform().pos)
+        DrawBodyOutline(zombie.body, c[1], c[2], c[3], a)
     end
 
 
@@ -260,111 +261,86 @@ function addZombieFunctions(zombie)
         local jump = zombie.movement.jump
         local JumpSpeed = zombie.movement.jumpSpeed
 
-        -- -- Timed for performance
-        -- if navigationTimer.time <= 0 then
-        --     navigationTimer.time = 60/navigationTimer.rpm
-
-            -- Raycast center fwd (walk fwd).
-            local rc = {
-                upper = { -- Raycast straight from zombie upper.
-                    dist = 2.2,
-                    rad = 1.5,
-                    tr = Transform(VecAdd(zTr.pos, Vec(0,2,0)), zTr.rot),
-                },
-                lower = { -- Raycast straight from zombie lower.
-                    dist = 2.2,
-                    rad = 0.15,
-                    tr = Transform(VecAdd(zTr.pos, Vec(0,0.35,0)), zTr.rot),
-                },
-                closest = {
-                    dist = 2,
-                    tr = Transform(VecAdd(zTr.pos, Vec(0,2,0)), zTr.rot),
-                }
+        -- Raycast center fwd (walk fwd).
+        local rc = {
+            upper = { -- Raycast straight from zombie upper.
+                dist = 2,
+                rad = 1,
+                tr = Transform(VecAdd(zTr.pos, Vec(0,2,0)), zTr.rot),
+            },
+            lower = { -- Raycast straight from zombie lower.
+                dist = 2,
+                rad = 0.15,
+                tr = Transform(VecAdd(zTr.pos, Vec(0,0.35,0)), zTr.rot),
+            },
+            closest = {
+                dist = 2,
+                tr = Transform(VecAdd(zTr.pos, Vec(0,2,0)), zTr.rot),
             }
+        }
 
-            -- lower
-            local hitLower, hitPosLower, hitShapeLower = raycastFromTransform(rc.lower.tr, rc.lower.dist, rc.lower.rad, zombie.body)
-            if hitLower and not HasTag(GetShapeBody(hitShapeAround),'ai_zombie') then
-                DebugLine(hitPosLower, TransformToParentPoint(rc.lower.tr, Vec(0,0,-rc.lower.dist)), 0, 1, 0)
-            else
-                hitLower = nil
-            end
+        -- lower
+        local hitLower, hitPosLower, hitShapeLower = raycastFromTransform(rc.lower.tr, rc.lower.dist, rc.lower.rad, zombie.body)
+        if hitLower and not HasTag(GetShapeBody(hitShapeAround),'ai_zombie') then
+            DebugLine(hitPosLower, TransformToParentPoint(rc.lower.tr, Vec(0,0,-rc.lower.dist)), 0, 1, 0)
+        end
 
+
+        local hitUpper, hitPosUpper, hitShapeUpper = nil,nil,nil
+        if hitLower then
             -- upper
-            local hitUpper, hitPosUpper, hitShapeUpper = raycastFromTransform(rc.upper.tr, rc.upper.dist, rc.upper.rad, zombie.body)
+            hitUpper, hitPosUpper, hitShapeUpper = raycastFromTransform(rc.upper.tr, rc.upper.dist, rc.upper.rad, zombie.body)
             if hitUpper and not HasTag(GetShapeBody(hitShapeAround),'ai_zombie') then
                 DebugLine(hitPosUpper, TransformToParentPoint(rc.upper.tr, Vec(0,0,-rc.upper.dist)), 1, 1, 0)
+            end
+        end
+
+
+        local zombieBodyCollision = HasTag(GetShapeBody(hitShapeLower),'ai_zombie')
+        local hitShapeVelLow = VecLength(GetBodyVelocity(GetShapeBody(hitShapeUpper or hitShapeLower))) < 10
+
+        -- Obstacle decisions.
+        local path = {
+            walk = (not hitLower) and (not hitUpper) and isZombieOnGround(zombie),
+            jump = (hitLower and not hitUpper) and (not zombieBodyCollision) and isZombieOnGround(zombie),
+            blocked = ((hitLower and hitUpper) or hitUpper) and not zombieBodyCollision and hitShapeVelLow and GetShapeSize(hitShapeUpper) > 5,
+        }
+
+        -- Movement
+        if path.jump then
+
+            -- zombie.ai.pathing.status = "Jumping"
+            if CalcDist(rc.lower.tr.pos, hitShapeLower) < JumpSpeed then
+                zombieMoveWalk(zombie, -speed/2, jump) -- Back up
             else
-                hitPosUpper = nil
+                zombieMoveWalk(zombie, JumpSpeed, jump) -- Jump forward
             end
 
-            -- QueryRejectBody(zombie.body)
-            -- local hitClosest, hitPosClosest, normClosest, hitShapeClosest = QueryClosestPoint(rc.closest.tr.pos, rc.closest.dist)
-            -- if hitClosest and not HasTag(GetShapeBody(hitShapeClosest),'ai_zombie') then
-            -- else
-            --     hitClosest = nil
-            -- end
+        elseif path.blocked then
 
-            local zombieBodyCollision = HasTag(GetShapeBody(hitShapeLower),'ai_zombie')
-            local hitShapeVelLow = VecLength(GetBodyVelocity(GetShapeBody(hitShapeUpper or hitShapeLower))) < 10
+            -- zombie.ai.pathing.status = "Blocked"
 
-            -- Obstacle decisions.
-            local path = {
-                walk = (not hitLower) and (not hitUpper) and isZombieOnGround(zombie),
-                jump = (hitLower and not hitUpper) and (not zombieBodyCollision) and isZombieOnGround(zombie),
-                blocked = ((hitLower and hitUpper) or hitUpper) and not zombieBodyCollision and hitShapeVelLow and GetShapeSize(hitShapeUpper) > 5,
-                -- stuck = hitClosest
-            }
+            -- Side movement based on center of shape.
+            local sMin, sMax = GetShapeBounds(hitShapeUpper)
+            local shapeCenter = VecLerp(sMin, sMax, 0.5)
+            local sidePos = TransformToLocalPoint(zTr, shapeCenter)
+            if sidePos[1] <= 0 then sidePos[1] = -1 else sidePos[1] = 1 end
 
-            -- Free zombie from being stuck
-            -- if path.stuck then
-            --     zombieMoveWalk(zombie, 3, 1)
-            --     zombieLookAt(zombie, zombie.ai.targetPos, 0.2)
-            -- end
+            -- Smaller movement for zombies blocking zombies to prevent fast collisions.
+            local isZombyBody = HasTag(GetShapeBody(hitShapeLower),'ai_zombie') or HasTag(GetShapeBody(hitShapeUpper),'ai_zombie')
 
-            -- Movement
-            if path.jump then
-
-                -- zombie.ai.pathing.status = "Jumping"
-                if CalcDist(rc.lower.tr.pos, hitShapeLower) < JumpSpeed then
-                    zombieMoveWalk(zombie, -speed/2, jump) -- Back up
-                else
-                    zombieMoveWalk(zombie, JumpSpeed, jump) -- Jump forward
-                end
-
-            elseif path.blocked then
-
-                -- zombie.ai.pathing.status = "Blocked"
-
-                -- Side movement based on center of shape.
-                local sMin, sMax = GetShapeBounds(hitShapeUpper)
-                local shapeCenter = VecLerp(sMin, sMax, 0.5)
-                local sidePos = TransformToLocalPoint(zTr, shapeCenter)
-                if sidePos[1] <= 0 then sidePos[1] = -1 else sidePos[1] = 1 end
-
-                -- Smaller movement for zombies blocking zombies to prevent fast collisions.
-                local isZombyBody = HasTag(GetShapeBody(hitShapeLower),'ai_zombie') or HasTag(GetShapeBody(hitShapeUpper),'ai_zombie')
-
-                -- Move zombie.
-                if isZombyBody then
-                    zombieMoveWalk(zombie, speed * 0.7, hop, sidePos[1])
-                else
-                    zombieMoveWalk(zombie, -speed/5, hop/2, sidePos[1] * 2)
-                end
-
+            -- Move zombie.
+            if isZombyBody then
+                zombieMoveWalk(zombie, speed * 0.7, hop, sidePos[1])
             else
-                -- Walk
-                zombieMoveWalk(zombie, speed, hop)
-                zombieLookAt(zombie, zombie.ai.targetPos, zombie.movement.lookRate)
+                zombieMoveWalk(zombie, -speed/5, hop/2, sidePos[1] * 2)
             end
 
-        -- else -- navigation timer counting down
-
-        --     -- Walk
-        --     zombieMoveWalk(zombie, speed, hop)
-        --     zombieLookAt(zombie, zombie.ai.targetPos, zombie.movement.lookRate)
-
-        -- end
+        else
+            -- Walk
+            zombieMoveWalk(zombie, speed, hop)
+            zombieLookAt(zombie, zombie.ai.targetPos, zombie.movement.lookRate)
+        end
 
     end
 
@@ -382,14 +358,14 @@ function addZombieFunctions(zombie)
                     local boidVelScaled = VecScale(VecNormalize(boidVel), zombie.movement.speeds.run)
 
                     -- Apply computations to vel.
-                    local align = computeAlignment(boid, zombiesTable)
+                    -- local align = computeAlignment(boid, zombiesTable)
                     local separation = computeSeparation(boid, zombiesTable, zombie.ai.targetPos)
-                    local obstacles = computeObstacles(boid)
+                    -- local obstacles = computeObstacles(boid)
 
                     local boidVelNew = VecCopy(boidVelScaled)
-                    boidVelNew = VecAdd(boidVelNew, align)
+                    -- boidVelNew = VecAdd(boidVelNew, align)
                     boidVelNew = VecAdd(boidVelNew, separation)
-                    boidVelNew = VecAdd(boidVelNew, obstacles)
+                    -- boidVelNew = VecAdd(boidVelNew, obstacles)
                     boidVelNew[2] = boidVel[2]
 
                     SetBodyVelocity(boid, boidVelNew)

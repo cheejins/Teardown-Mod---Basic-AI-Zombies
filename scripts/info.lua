@@ -4,7 +4,7 @@ local menu = {
 
 function drawInfoUi()
 
-    if InputPressed('h') then
+    if InputPressed('i') then
         menu.isShowing = not menu.isShowing
     end
 
@@ -14,7 +14,7 @@ function drawInfoUi()
 
         UiTranslate(UiCenter(), UiMiddle())
         UiAlign("center middle")
-        UiImageBox('MOD/img/info.png', 1600, 680, 1, 1)
+        UiImageBox('MOD/img/info.png', 1610, 973, 1, 1)
     end
 
 end
