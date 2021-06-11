@@ -25,7 +25,7 @@ function runZombieController()
 
         elseif InputDown('lmb') or zombieController.isActive then -- setting target..
 
-            DebugWatch('zombie controller','target active')
+            -- DebugWatch('zombie controller','target active')
 
             zombieController.isActive = true
 
@@ -38,7 +38,7 @@ function runZombieController()
                         zombieController.pos = pos
                     end
                 end
-                DebugWatch('zombie controller','target set')
+                -- DebugWatch('zombie controller','target set')
             end
 
         else

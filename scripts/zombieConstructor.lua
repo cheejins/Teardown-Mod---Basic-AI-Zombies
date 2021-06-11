@@ -264,7 +264,6 @@ function addZombieFunctions(zombie)
         -- if navigationTimer.time <= 0 then
         --     navigationTimer.time = 60/navigationTimer.rpm
 
-
             -- Raycast center fwd (walk fwd).
             local rc = {
                 upper = { -- Raycast straight from zombie upper.
@@ -306,10 +305,8 @@ function addZombieFunctions(zombie)
             --     hitClosest = nil
             -- end
 
-
             local zombieBodyCollision = HasTag(GetShapeBody(hitShapeLower),'ai_zombie')
             local hitShapeVelLow = VecLength(GetBodyVelocity(GetShapeBody(hitShapeUpper or hitShapeLower))) < 10
-
 
             -- Obstacle decisions.
             local path = {
@@ -318,7 +315,6 @@ function addZombieFunctions(zombie)
                 blocked = ((hitLower and hitUpper) or hitUpper) and not zombieBodyCollision and hitShapeVelLow and GetShapeSize(hitShapeUpper) > 5,
                 -- stuck = hitClosest
             }
-
 
             -- Free zombie from being stuck
             -- if path.stuck then

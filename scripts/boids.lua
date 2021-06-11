@@ -14,7 +14,7 @@ function initBoids()
     boidsData = {
         timer = { -- boid execution timed for performance.
             time = 0,
-            rpm = 200,
+            rpm = 500,
         },
         obstacles = {
             count = 0,
@@ -133,6 +133,9 @@ function computeSeparation(boid, boids, targetPos, scale)
 
             local otherBoidTr = GetBodyTransform(boids[i].body)
 
+            boidTr[2] = 0
+            otherBoidTr[2] = 0
+
             -- local boidIsCloserToTarget = CalcDist(boidTr.pos, targetPos) < CalcDist(otherBoidTr.pos, targetPos)
             if CalcDist(boidTr.pos, otherBoidTr.pos) < boidsData.radius.separation then
 
@@ -140,8 +143,9 @@ function computeSeparation(boid, boids, targetPos, scale)
                 vel[3] = otherBoidTr.pos[3] - boidTr.pos[3]
 
                 neighborCount = neighborCount + 1
-            elseif CalcDist(boidTr.pos, otherBoidTr.pos) < 1 then
-                PointLight((boidTr.pos), 1, 0, 0, 1)
+
+            -- elseif CalcDist(boidTr.pos, otherBoidTr.pos) < 1 then
+            --     PointLight((boidTr.pos), 1, 0, 0, 1)
             end
 
         end

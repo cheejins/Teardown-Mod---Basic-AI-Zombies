@@ -1,6 +1,7 @@
 #include "scripts/utility.lua"
 #include "scripts/zombie.lua"
 #include "scripts/zombieRadar.lua"
+#include "scripts/info.lua"
 
 
 -- ================================================================
@@ -49,12 +50,13 @@ end
 
 function draw()
     runZombieRadar()
+    drawInfoUi()
 end
 
 
 --[[DEBUG]]
 function debugMod()
-    DebugWatch('#zombiesTable', #zombiesTable)
+    -- DebugWatch('#zombiesTable', #zombiesTable)
     for i = 1, #zombiesTable do
         local zombie = zombiesTable[i]
         -- DebugWatch("Zombie"..zombie.id.." state", zombie.ai.state)
@@ -138,7 +140,7 @@ function initMod()
     sounds.playRandom = function(zombie, soundsTable, vol)
         local p = math.floor(soundsTable[rdm(1, #soundsTable)])
         PlaySound(p, zombie.getPos(), vol or 1)
-        DebugWatch('hit sound', p)
+        -- DebugWatch('hit sound', p)
     end
 
 end
@@ -158,7 +160,7 @@ function initMap()
     }
     if FindLocation("ai_zombie_map", true) ~= 0 then
         SCRIPTED_MAP = true
-        DebugPrint("Map is scripted ai zombie map...")
+        -- DebugPrint("Map is scripted ai zombie map...")
         initTriggers()
     end
 end
@@ -173,8 +175,8 @@ function initTriggers()
         map.triggers.refs[tagVal] = trigger
         map.triggers.activated[i] = 0
 
-        DebugPrint("activated: " .. map.triggers.activated[i])
-        DebugPrint("trigger: " .. map.triggers.names[tagVal])
+        -- DebugPrint("activated: " .. map.triggers.activated[i])
+        -- DebugPrint("trigger: " .. map.triggers.names[tagVal])
     end
 end
 function manageMapTriggers()

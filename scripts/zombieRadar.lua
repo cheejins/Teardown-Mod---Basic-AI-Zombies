@@ -73,8 +73,8 @@ end
 
 function positionRadar()
 
-    -- local corner = GetString('MOD.radar.corner')
-    local corner = 'bottomRight'
+    -- local corner = GetString('MOD.zombieRadar.corner')
+    local corner = 'topLeft'
 
     local w = zr.static.bounds.width
     local h = zr.static.bounds.height
