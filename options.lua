@@ -1,5 +1,4 @@
 local ui = {}
-local options = {}
 
 function init()
     ui = {
@@ -15,6 +14,7 @@ function init()
         container = {
             width = 1440,
             height = 240,
+            margin = 240,
         },
 
         padding = {
@@ -26,31 +26,20 @@ function init()
 
         bgColor = 0.12,
     }
-
-    options = {
-
-        insertSlider = function ()
-
-        end,
-
-        insertButton = function (label, min, max, savePath)
-
-        end,
-    }
 end
 
 
 function draw()
     drawHeader()
     drawBody()
+    -- drawOptions()
+    drawCloseButton()
 end
 
 
 function drawHeader()
-
-    UiTranslate(240, 45)
-
     UiPush()
+        UiTranslate(ui.container.margin, 20)
 
         UiColor(1, 1, 1)
         UiFont("bold.ttf", ui.text.size.l)
@@ -61,17 +50,6 @@ function drawHeader()
             UiRect(bounds[1], bounds[2])
         UiPop()
 
-        -- UiPush()
-        --     UiAlign("right top")
-        --     UiColor(1, 1, 1)
-        --     UiTranslate(1440, 22.5)
-        --     UiFont("bold.ttf", 40)
-        --     local resetButton = UiTextButton("RESET", 200, 50)
-        --     if resetButton then
-        --         resetMod()
-        --     end
-        -- UiPop()
-
         -- Image
         UiPush()
             UiTranslate(22.5, 22.5)
@@ -81,24 +59,47 @@ function drawHeader()
         UiTranslate(160, 20)
         UiAlign("left top")
         UiFont("bold.ttf", ui.text.size.l * 2)
-        UiText("AI Zombies")
+        UiText("Basic AI Zombies (Options)")
         -- Author
         UiTranslate(0, 80)
         UiFont("bold.ttf",  ui.text.size.l)
         UiText("By: Cheejins")
     UiPop()
+    UiTranslate(0,195)
 end
 
-
 function drawBody()
-    UiTranslate(0, 200)
+    local componentHeight = 700
     UiPush()
+        UiTranslate(ui.container.margin, 20)
         UiColor(ui.bgColor, ui.bgColor, ui.bgColor)
-        UiRect(ui.container.width, 700)
+        UiRect(ui.container.width, componentHeight)
     UiPop()
+    UiTranslate(0, componentHeight)
 end
 
 function drawOptions()
+
+    local componentHeight = 500
+
+    -- Radar
+    -- corner
+    -- zoom
+
+    -- UiTranslate(0, componentHeight)
     
 end
 
+function drawCloseButton()
+
+    UiPush()
+        UiColor(1,0,0,1)
+        UiTranslate(UiCenter(), 50)
+        UiAlign("center top")
+        UiFont("bold.ttf", 48)
+
+        if UiTextButton("Close", 200, 40) then
+            Menu()
+        end
+    UiPop()
+end
