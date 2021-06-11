@@ -20,9 +20,39 @@ local zr = {
 
 
 function runZombieRadar()
+    if GetString('savegame.mod.zombieRadar.corner') ~= 'off' then
+        positionRadar()
+        drawRadar()
+    end
+end
 
-    positionRadar()
 
+function positionRadar()
+
+    local corner = GetString('savegame.mod.zombieRadar.corner')
+
+    local w = zr.static.bounds.width
+    local h = zr.static.bounds.height
+    local translate = {0,0}
+
+    if corner == 'tl' then
+
+    elseif corner == 'tr' then
+        translate[1] = UiWidth() - w
+
+    elseif corner == 'bl' then
+        translate[2] = UiHeight() - h
+
+    elseif corner == 'br' then
+        translate[1] = UiWidth() - w
+        translate[2] = UiHeight() - h
+    end
+
+    UiTranslate(translate[1], translate[2])
+end
+
+
+function drawRadar()
     UiPush()
 
         -- Radar background and border.
@@ -67,30 +97,4 @@ function runZombieRadar()
         UiPop()
 
     UiPop()
-
-end
-
-
-function positionRadar()
-
-    local corner = GetString('MOD.zombieRadar.corner') or 'topLeft'
-
-    local w = zr.static.bounds.width
-    local h = zr.static.bounds.height
-    local translate = {0,0}
-
-    if corner == 'topLeft' then
-
-    elseif corner == 'topRight' then
-        translate[1] = UiWidth() - w
-
-    elseif corner == 'bottomLeft' then
-        translate[2] = UiHeight() - h
-
-    elseif corner == 'bottomRight' then
-        translate[1] = UiWidth() - w
-        translate[2] = UiHeight() - h
-    end
-
-    UiTranslate(translate[1], translate[2])
 end
