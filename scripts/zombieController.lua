@@ -1,6 +1,14 @@
 #include "scripts/utility.lua"
 #include "scripts/zombie.lua"
 
+-- ====================================================================================================
+-- Basic Ai Zombies - by: Cheejins
+-- ====================================================================================================
+
+-- ----------------------------------------------------------------------------------------------------
+-- This script handles the creation of a zombie instance.
+-- ----------------------------------------------------------------------------------------------------
+
 
 function initZombieController()
     zombieController = {active = false, pos = Vec(0,0,0),}
@@ -16,7 +24,7 @@ function runZombieController()
 
         if InputDown('rmb') then -- release target..
 
-            DebugWatch('zombie controller','target reset')
+            -- DebugWatch('zombie controller','target reset')
 
             zombieController.isActive = false
             for i = 1, #zombiesTable do

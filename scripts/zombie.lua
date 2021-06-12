@@ -155,7 +155,7 @@ function isZombieOnGround(zombie)
     local hit, hitPos, hitShape = raycastFromTransform(rcTr, 0.5, 0.5, zombie.body)
 
     local isRcBodyZombie = HasTag(GetShapeBody(hitShape), "ai_zombie")
-    if hit and not isRcBodyZombie then
+    if hit and not isRcBodyZombie or IsPointInWater(zombie.getTr().pos) then
         return true
     end
     return false
@@ -270,11 +270,10 @@ function zombieChaseTarget(zombie, speed)
             zombie.movement.speed = speed
             zombie.raycastNavigate()
 
-            if boidsData.timer.time <= 0 then -- Timed for performance.
-                boidsData.timer.time = 60/boidsData.timer.rpm
-
+            -- if boidsData.timer.time <= 0 then -- Timed for performance.
+            --     boidsData.timer.time = 60/boidsData.timer.rpm
                 zombie.boidsNavigate()
-            end
+            -- end
 
             local zVelRaycast = GetBodyVelocity(zombie.body)
             local zVelLerp = VecLerp(zVel, zVelRaycast, 0.5)

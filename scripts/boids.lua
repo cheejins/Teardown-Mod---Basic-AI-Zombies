@@ -14,7 +14,7 @@ function initBoids()
     boidsData = {
         timer = { -- boid execution timed for performance.
             time = 0,
-            rpm = 300,
+            rpm = 30000,
         },
         obstacles = {
             count = 0,
@@ -24,13 +24,13 @@ function initBoids()
         radius = {
             align = 3,
             cohesion = 0,
-            separation = 4,
+            separation = 3,
             obstacle = 5,
         },
         strength = { -- Scaled boid output
             align = 0.4,
             cohesion = 1,
-            separation = 1.5,
+            separation = 0.85,
             obstacle = 0.75,
         }
     }
@@ -122,33 +122,28 @@ end
 function computeSeparation(boid, boids, targetPos, scale)
 
     scale = scale or 1
-
     local boidTr = GetBodyTransform(boid)
-
     local vel = Vec(0,0,0)
+
     local neighborCount = 0
 
     for i = 1, #boids do
-        if boid ~= boids[i].body then
 
-            local otherBoidTr = GetBodyTransform(boids[i].body)
+        local otherBoidTr = GetBodyTransform(boids[i])
 
-            boidTr[2] = 0
-            otherBoidTr[2] = 0
+        boidTr[2] = 0
+        otherBoidTr[2] = 0
 
-            -- local boidIsCloserToTarget = CalcDist(boidTr.pos, targetPos) < CalcDist(otherBoidTr.pos, targetPos)
-            if CalcDist(boidTr.pos, otherBoidTr.pos) < boidsData.radius.separation then
+        if CalcDist(boidTr.pos, otherBoidTr.pos) < boidsData.radius.separation then
 
-                vel[1] = otherBoidTr.pos[1] - boidTr.pos[1]
-                vel[3] = otherBoidTr.pos[3] - boidTr.pos[3]
+            vel[1] = otherBoidTr.pos[1] - boidTr.pos[1]
+            vel[3] = otherBoidTr.pos[3] - boidTr.pos[3]
 
-                neighborCount = neighborCount + 1
+            -- PointLight(otherBoidTr.pos, 1, 1, 0, 2)
 
-            -- elseif CalcDist(boidTr.pos, otherBoidTr.pos) < 1 then
-            --     PointLight((boidTr.pos), 1, 0, 0, 1)
-            end
-
+            neighborCount = neighborCount + 1
         end
+
     end
 
     if neighborCount == 0 then

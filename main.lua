@@ -121,19 +121,19 @@ function initMod()
 
     sounds.play = {
         damage = function (zombie, vol)
-            sounds.playRandom(zombie, sounds.damage, vol or 2.5)
+            sounds.playRandom(zombie, sounds.damage, vol or 2)
         end,
 
         death = function(zombie, vol)
-            sounds.playRandom(zombie, sounds.deaths, vol or 4)
+            sounds.playRandom(zombie, sounds.deaths, vol or 1)
         end,
 
         growl = function (zombie, vol)
-            sounds.playRandom(zombie, sounds.growls, vol or 3)
+            sounds.playRandom(zombie, sounds.growls, vol or 2)
         end,
 
         hit = function(zombie, vol)
-            sounds.playRandom(zombie, sounds.hits, vol or 1)
+            sounds.playRandom(zombie, sounds.hits, vol or 1.5)
         end,
     }
 

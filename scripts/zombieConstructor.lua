@@ -1,5 +1,5 @@
 -- ====================================================================================================
--- Zombie AI - by: Cheejins
+-- Basic Ai Zombies - by: Cheejins
 -- ====================================================================================================
 
 -- ----------------------------------------------------------------------------------------------------
@@ -82,6 +82,9 @@ function createZombie(body, id) -- Create zombie.
                 closeShapes = {},
                 prevCloseShapes = {},
             },
+            boids = {
+                nearbyZombieBodies = {}
+            },
             positions = {
                 jump = Vec(0,1,0), -- Add height to zombie tr to detect jump height.
                 center = Vec(0,1,0), -- Add height to zombie tr to detect walk forward height.
@@ -105,7 +108,7 @@ function createZombie(body, id) -- Create zombie.
         speed = 7,
         speeds = {
             walk = 2.5,
-            run = 6,
+            run = 5,
             attacking = 4,
             random = randomSpeed,
         },
@@ -120,14 +123,14 @@ function createZombie(body, id) -- Create zombie.
             rate = 0.95, -- Rate to rotate to upright.
         },
         velocityLimits = { -- Total velocity < limit = zombie can move.
-            move = 9,
-            keepUpright = 9,
+            move = 6,
+            keepUpright = 6,
         },
     }
     zombie.mass = {
         start = GetBodyMass(zombie.body),
         previous = GetBodyMass(zombie.body),
-        deathPercentage = 0.7,
+        deathPercentage = 0.82,
         deathVal = nil,
     }
     zombie.mass.deathVal = zombie.mass.start * zombie.mass.deathPercentage
@@ -239,7 +242,6 @@ function addZombieFunctions(zombie)
     zombie.manageHealth = function()
         if GetBodyMass(zombie.body) < zombie.mass.previous then
             sounds.play.damage(zombie)
-            DebugPrint('zombie hit'..sfnTime())
         end
         zombie.mass.previous = GetBodyMass(zombie.body)
     end
@@ -347,31 +349,48 @@ function addZombieFunctions(zombie)
 
     zombie.boidsNavigate = function ()
 
+        local zTr = zombie.getTr()
+
+        -- Surrounding Aabb.
+        local aabbZX = 2.5
+        local aabbFloor = 0
+        local aabbHeight = 1
+        local aabbStartPos = VecAdd(zTr.pos, Vec(-aabbZX,aabbFloor,-aabbZX))
+        local aabbEndPos = VecAdd(zTr.pos, Vec(aabbZX,aabbHeight,aabbZX))
+        -- drawAabb(aabbStartPos, aabbEndPos, 1, 1, 1, 1)
+
+        -- Quuery surrounding AABBs.
+        QueryRejectBody(zombie.body)
+        local nearbyZombieBodiesList = QueryAabbBodies(aabbStartPos, aabbEndPos)
+        for i = 1, #nearbyZombieBodiesList do
+            if not HasTag(nearbyZombieBodiesList[i], 'ai_zombie') then
+                nearbyZombieBodiesList[i] = nil -- Keep zombie bodies only
+            else
+                local nZAabbMin, nZAabbMax = GetBodyBounds(nearbyZombieBodiesList[i])
+                -- drawAabb(nZAabbMin, nZAabbMax, 1, 0, 0, 1)
+            end
+        end
+
+        -- Process boids.
         if zombie.ai.isActive then
-            for i = 1, #zombiesTable do
+            for i = 1, #nearbyZombieBodiesList do
 
-                local otherZombie = zombiesTable[i]
-                if otherZombie ~= zombie and otherZombie.ai.isActive then
+                local boid = zombie.body
+                local boidVel = GetBodyVelocity(boid)
+                local boidVelScaled = VecScale(VecNormalize(boidVel), zombie.movement.speeds.run)
 
-                    local boid = zombiesTable[i].body
-                    local boidVel = GetBodyVelocity(boid)
-                    local boidVelScaled = VecScale(VecNormalize(boidVel), zombie.movement.speeds.run)
+                -- Apply computations to vel.
+                -- local align = computeAlignment(boid, zombiesTable)
+                -- local obstacles = computeObstacles(boid)
+                local separation = computeSeparation(boid, nearbyZombieBodiesList, zombie.ai.pathing.targetPos)
 
-                    -- Apply computations to vel.
-                    -- local align = computeAlignment(boid, zombiesTable)
-                    local separation = computeSeparation(boid, zombiesTable, zombie.ai.targetPos)
-                    -- local obstacles = computeObstacles(boid)
+                local boidVelNew = VecCopy(boidVelScaled)
+                boidVelNew = VecAdd(boidVelNew, separation)
+                -- boidVelNew = VecAdd(boidVelNew, align)
+                -- boidVelNew = VecAdd(boidVelNew, obstacles)
+                boidVelNew[2] = boidVel[2]
 
-                    local boidVelNew = VecCopy(boidVelScaled)
-                    -- boidVelNew = VecAdd(boidVelNew, align)
-                    boidVelNew = VecAdd(boidVelNew, separation)
-                    -- boidVelNew = VecAdd(boidVelNew, obstacles)
-                    boidVelNew[2] = boidVel[2]
-
-                    SetBodyVelocity(boid, boidVelNew)
-
-                end
-
+                SetBodyVelocity(boid, boidVelNew)
             end
         end
 
