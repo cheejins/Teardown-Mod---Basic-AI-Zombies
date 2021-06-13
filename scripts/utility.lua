@@ -165,7 +165,7 @@ function raycastFromTransform(tr, distance, rad, rejectBody)
 end
 function diminishBodyAngVel(body, rate)
     local angVel = GetBodyAngularVelocity(body)
-    local dRate = rate or 0.9
+    local dRate = rate or 0.99
     local diminishedAngVel = Vec(angVel[1]*dRate, angVel[2]*dRate, angVel[3]*dRate)
     SetBodyAngularVelocity(body, diminishedAngVel)
 end

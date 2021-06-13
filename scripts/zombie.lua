@@ -40,7 +40,7 @@ function manageZombie(zombie)
     if zombie.ai.isActive then
         if zombie:isAlive() then
             zombieProcessAi(zombie)
-            diminishBodyAngVel(zombie.body, 0.4)
+            diminishBodyAngVel(zombie.body, 0.8)
         else
             zombie.ai.isActive = false -- Disable dead zombie's ai.
             zombieDie(zombie)
