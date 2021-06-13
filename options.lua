@@ -31,11 +31,25 @@ end
 
 
 function draw()
-    drawHeader()
-    drawOptions()
-    drawCloseButton()
+    -- initOptions()
+
+    -- UiPush()
+    --     drawHeader()
+    --     drawOptions()
+    --     drawCloseButton()
+    -- UiPop()
 end
 
+function initOptions()
+    if GetBool('savegame.mod.options.init') == false then
+
+        SetString('savegame.mod.zombieRadar.corner', 'tr')
+        SetBool('savegame.mod.options.outline', true)
+        -- SetBool('savegame.mod.options.customWeapons', true)
+
+        SetBool('savegame.mod.options.init', true)
+    end
+end
 
 function drawHeader()
     UiPush()
@@ -195,6 +209,28 @@ function drawRadarOptions()
 
             UiPop()
         UiPop()
+
+        -- UiTranslate(0, ui.text.size.l*1.5)
+
+        -- -- Custom Weapons
+        -- UiPush()
+        --     UiFont("bold.ttf",  ui.text.size.m)
+        --     UiTranslate(0, ui.text.size.l*1.5)
+
+        --     UiPush()
+        --         local toggleText = 'OFF'
+        --         if GetBool('savegame.mod.options.customWeapons') then
+        --             activeButton()
+        --             toggleText = 'ON'
+        --         else
+        --             inactiveButton()
+        --         end
+
+        --         if UiTextButton('Custom Weapons = ' .. toggleText, buttonW*2.2, buttonH) then
+        --             SetBool('savegame.mod.options.customWeapons', not GetBool('savegame.mod.options.customWeapons'))
+        --         end
+        --     UiPop()
+        -- UiPop()
 
     UiPop()
 end

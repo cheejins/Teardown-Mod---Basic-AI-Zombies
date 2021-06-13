@@ -2,6 +2,10 @@
 #include "scripts/zombie.lua"
 #include "scripts/zombieRadar.lua"
 #include "scripts/info.lua"
+#include "scripts/customWeapons.lua"
+-- #include "mods/C Glock/main.lua"
+-- #include 'mods/C M4A1/main.lua'
+-- #include 'mods/C P90/main.lua'
 
 
 -- ================================================================
@@ -24,6 +28,11 @@ function init()
     initZombies() -- Init zombies last after all other values are set.
     initZombieController()
 
+    -- initGlock18()
+    -- initM4A1()
+    -- initP90()
+
+
 end
 
 
@@ -33,6 +42,11 @@ function tick()
 
     -- Game..
     updateGameTable()
+
+    -- Custom Weapons
+    -- runGlock18()
+    -- runM4A1()
+    -- runP90()
 
     -- Zombies..
     manageZombies()
@@ -49,8 +63,13 @@ function tick()
 end
 
 function draw()
-    runZombieRadar()
-    drawInfoUi()
+    UiPush()
+        runZombieRadar()
+    UiPop()
+
+    UiPush()
+        drawInfoUi()
+    UiPop()
 end
 
 
