@@ -33,7 +33,6 @@ end
 function draw()
     drawHeader()
     drawOptions()
-    -- drawOptions()
     drawCloseButton()
 end
 
@@ -80,20 +79,38 @@ function drawOptions()
         UiRect(ui.container.width, componentHeight)
     UiPop()
 
+    drawRadarOptions()
+
+    UiTranslate(0, componentHeight)
+end
+
+function drawRadarOptions()
+
+    local spacing = 150
+    local buttonH = 50
+    local buttonW = spacing * 0.98
+
+    -- Active image box
+    local activeButton = function ()
+        UiButtonImageBox("ui/common/box-solid-6.png", 10, 10, 0,0.7,0)
+        UiColor(1,1,1)
+    end
+
+    -- inactive image box
+    local inactiveButton = function ()
+        UiButtonImageBox("ui/common/box-solid-6.png", 10, 10, ui.fgColor,ui.fgColor,ui.fgColor)
+        UiColor(1,1,1)
+    end
 
     -- Radar corner table
     UiPush()
-
-        local spacing = 150
-        local buttonH = 50
-        local buttonW = spacing * 0.98
         local corners = {-spacing*2, -spacing, 0, spacing, spacing*2}
-
 
         UiAlign('center middle')
         UiFont("bold.ttf",  ui.text.size.l)
         UiTranslate(UiCenter(), ui.text.size.l*1.5)
 
+        --[[RADAR]]
         -- Title
         UiText("Radar Position")
         UiTranslate(0, ui.text.size.l*1.5)
@@ -103,12 +120,6 @@ function drawOptions()
 
             UiFont("bold.ttf",  ui.text.size.m)
 
-            -- Active image box
-            local activeButton = function ()
-                UiButtonImageBox("ui/common/box-solid-6.png", 10, 10, 1,0,0)
-                UiColor(1,1,1)
-            end
-
             -- Base image box
             UiColor(1,1,1)
             UiButtonImageBox("ui/common/box-solid-6.png", 10, 10, ui.fgColor,ui.fgColor,ui.fgColor)
@@ -116,7 +127,6 @@ function drawOptions()
             if GetString('savegame.mod.zombieRadar.corner') == '' then
                 SetString('savegame.mod.zombieRadar.corner','tl')
             end
-
             UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'tl' then activeButton() end
                 UiTranslate(corners[1], 0)
@@ -125,8 +135,6 @@ function drawOptions()
                     SetString('savegame.mod.zombieRadar.corner','tl')
                 end
             UiPop()
-
-            
             UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'tr' then activeButton() end
                 UiTranslate(corners[2], 0)
@@ -135,8 +143,6 @@ function drawOptions()
                     SetString('savegame.mod.zombieRadar.corner','tr')
                 end
             UiPop()
-
-
             UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'bl' then activeButton() end
                 UiTranslate(corners[3], 0)
@@ -145,8 +151,6 @@ function drawOptions()
                     SetString('savegame.mod.zombieRadar.corner','bl')
                 end
             UiPop()
-
-
             UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'br' then activeButton() end
                 UiTranslate(corners[4], 0)
@@ -155,8 +159,6 @@ function drawOptions()
                     SetString('savegame.mod.zombieRadar.corner','br')
                 end
             UiPop()
-
-
             UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'off' then activeButton() end
                 UiTranslate(corners[5], 0)
@@ -165,14 +167,36 @@ function drawOptions()
                     SetString('savegame.mod.zombieRadar.corner','off')
                 end
             UiPop()
+        UiPop()
 
 
+        --[[MISC]]
+        UiTranslate(0, ui.text.size.l*3)
+        UiText("Misc Options")
 
+        -- Zombie Outline
+        UiPush()
+            UiFont("bold.ttf",  ui.text.size.m)
+            UiTranslate(0, ui.text.size.l*1.5)
+
+            UiPush()
+
+                local toggleText = 'OFF'
+                if GetBool('savegame.mod.options.outline') then
+                    activeButton()
+                    toggleText = 'ON'
+                else
+                    inactiveButton()
+                end
+
+                if UiTextButton('Zombie Outline = ' .. toggleText, buttonW*2, buttonH) then
+                    SetBool('savegame.mod.options.outline', not GetBool('savegame.mod.options.outline'))
+                end
+
+            UiPop()
         UiPop()
 
     UiPop()
-
-    UiTranslate(0, componentHeight)
 end
 
 function drawCloseButton()

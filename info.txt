@@ -1,7 +1,8 @@
 name = Basic Ai Zombies
 author = Cheejins
 description = A simple Ai Zombie mod. The zombies chase you, attack you, and can avoid basic obstacles. To kill a zombie, you have to either destroy its brain or break off enough of its body. I hope you enjoy this mod. There are many more AI mods to come in the future :)
-tags = Gameplay, Tool
+tags = Gameplay
+[noupload]
 
 # Available tags (comma-separated):
 # Map      - A custom map with no particular gameplay

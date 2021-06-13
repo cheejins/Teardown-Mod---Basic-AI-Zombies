@@ -69,7 +69,10 @@ function zombieProcessAi(zombie)
 
     zombie.manageHealth()
     zombie.runTimers()
-    zombie.drawOutline()
+
+    if GetBool('savegame.mod.options.outline') then
+        zombie.drawOutline()
+    end
 
 end
 

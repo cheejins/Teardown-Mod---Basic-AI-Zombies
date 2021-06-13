@@ -267,13 +267,13 @@ function addZombieFunctions(zombie)
         local rc = {
             upper = { -- Raycast straight from zombie upper.
                 dist = 2,
-                rad = 1,
-                tr = Transform(VecAdd(zTr.pos, Vec(0,2,0)), zTr.rot),
+                rad = 1.5,
+                tr = Transform(VecAdd(zTr.pos, Vec(0,2.5,0)), zTr.rot),
             },
             lower = { -- Raycast straight from zombie lower.
                 dist = 2,
-                rad = 0.15,
-                tr = Transform(VecAdd(zTr.pos, Vec(0,0.35,0)), zTr.rot),
+                rad = 0.2,
+                tr = Transform(VecAdd(zTr.pos, Vec(0,0.5,0)), zTr.rot),
             },
             closest = {
                 dist = 2,
@@ -297,7 +297,6 @@ function addZombieFunctions(zombie)
             end
         end
 
-
         local zombieBodyCollision = HasTag(GetShapeBody(hitShapeLower),'ai_zombie')
         local hitShapeVelLow = VecLength(GetBodyVelocity(GetShapeBody(hitShapeUpper or hitShapeLower))) < 10
 
@@ -310,8 +309,8 @@ function addZombieFunctions(zombie)
 
         -- Movement
         if path.jump then
-
             -- zombie.ai.pathing.status = "Jumping"
+
             if CalcDist(rc.lower.tr.pos, hitShapeLower) < JumpSpeed then
                 zombieMoveWalk(zombie, -speed/2, jump) -- Back up
             else
@@ -319,7 +318,6 @@ function addZombieFunctions(zombie)
             end
 
         elseif path.blocked then
-
             -- zombie.ai.pathing.status = "Blocked"
 
             -- Side movement based on center of shape.
