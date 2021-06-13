@@ -167,8 +167,8 @@ end
 
 function zombieKeepUpright(zombie, rotRate)
     local zTr = zombie.getTr()
-    zTr.rot[1] = 0
-    zTr.rot[3] = 0
+    zTr.rot[1] = zTr.rot[1] * 0.9999
+    zTr.rot[3] = zTr.rot[3] * 0.9999
     zombie.setTr(zTr)
 end
 
