@@ -271,7 +271,7 @@ function addZombieFunctions(zombie)
                 tr = Transform(VecAdd(zTr.pos, Vec(0,2.5,0)), zTr.rot),
             },
             lower = { -- Raycast straight from zombie lower.
-                dist = 2,
+                dist = 2.5,
                 rad = 0.2,
                 tr = Transform(VecAdd(zTr.pos, Vec(0,0.5,0)), zTr.rot),
             },
@@ -284,7 +284,7 @@ function addZombieFunctions(zombie)
         -- lower
         local hitLower, hitPosLower, hitShapeLower = raycastFromTransform(rc.lower.tr, rc.lower.dist, rc.lower.rad, zombie.body)
         if hitLower and not HasTag(GetShapeBody(hitShapeAround),'ai_zombie') then
-            DebugLine(hitPosLower, TransformToParentPoint(rc.lower.tr, Vec(0,0,-rc.lower.dist)), 0, 1, 0)
+            -- DebugLine(hitPosLower, TransformToParentPoint(rc.lower.tr, Vec(0,0,-rc.lower.dist)), 0, 1, 0)
         end
 
 
@@ -293,7 +293,7 @@ function addZombieFunctions(zombie)
             -- upper
             hitUpper, hitPosUpper, hitShapeUpper = raycastFromTransform(rc.upper.tr, rc.upper.dist, rc.upper.rad, zombie.body)
             if hitUpper and not HasTag(GetShapeBody(hitShapeAround),'ai_zombie') then
-                DebugLine(hitPosUpper, TransformToParentPoint(rc.upper.tr, Vec(0,0,-rc.upper.dist)), 1, 1, 0)
+                -- DebugLine(hitPosUpper, TransformToParentPoint(rc.upper.tr, Vec(0,0,-rc.upper.dist)), 1, 1, 0)
             end
         end
 
