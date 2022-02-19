@@ -34,7 +34,7 @@ end
 
 function manageZombieSpawning()
 
-    if GetString('game.player.tool') == 'zombieController' then
+    if GetString('game.player.tool') == 'zombieController' and GetPlayerVehicle() == 0 then
 
         if InputPressed('rmb') then
             showSpawnMenu = not showSpawnMenu
@@ -67,8 +67,6 @@ function spawnZombies()
         end
         local prefabFilename = selectedZombiePrefabs[GetRandomIndex(selectedZombies)].fileName
 
-        beep()
-
         -- Spawn a random zombie from the selected zombies.
         local hit, hitPos = raycastFromTransform(GetCameraTransform())
         if hit then
@@ -81,7 +79,7 @@ function spawnZombies()
                     if HasTag(entity, 'ai_zombie') then
 
                         zombieId = zombieId + 1
-                        local zombie = createZombie(entity, zombieId)
+                        local zombie = createZombie(entity, zombieId, true)
 
                         table.insert(zombiesTable, zombie)
 

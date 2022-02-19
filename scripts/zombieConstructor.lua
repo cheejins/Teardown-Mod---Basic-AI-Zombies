@@ -8,7 +8,7 @@
 
 
 --[[ZOMBIE CONSTRUCTION]]
-function createZombie(body, id) -- Create zombie.
+function createZombie(body, id, activated) -- Create zombie.
 
     local zombie = {}
 
@@ -66,8 +66,8 @@ function createZombie(body, id) -- Create zombie.
         detection = {
             distances = {
                 idle = math.huge,
-                seeking = 150,
-                chasing = 50,
+                seeking = 50,
+                chasing = 25,
                 attacking = 4,
             },
         },
@@ -107,12 +107,12 @@ function createZombie(body, id) -- Create zombie.
         isOnGround = false,
         speed = 7,
         speeds = {
-            walk = 2.5,
-            run = 5,
+            walk = 2.4,
+            run = 4.5,
             attacking = 4,
             random = randomSpeed,
         },
-        hop = 1.8, -- Hop = y velocity.
+        hop = 3.5, -- Hop = y velocity.
         jump = 6,
         jumpSpeed = 2,
         lookRate = 0.03, -- The rate at which the zombie turns towards its target.
@@ -178,7 +178,8 @@ function createZombie(body, id) -- Create zombie.
     zombie = addZombieAccessors(zombie)
     zombie = addZombieFunctions(zombie)
 
-    if SCRIPTED_MAP then zombie.ai.isActive = false end -- Scripted maps use trigger zones to activate zombies.
+    activated = activated or false
+    if SCRIPTED_MAP and not activated then zombie.ai.isActive = false end -- Scripted maps use trigger zones to activate zombies.
     setmetatable(zombie, zombieMetatable)
 
     return zombie
