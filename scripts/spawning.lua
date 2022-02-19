@@ -5,27 +5,27 @@ function initSpawnMenu()
     selectedZombiePrefabs = {
 
         {
-            fileName = 'zombie.xml',
+            fileName = 'zombie',
             name = 'Civilian',
             selected = true,
         },
 
         {
-            fileName = 'zombie_scientist.xml',
+            fileName = 'zombie_scientist',
             name = 'Scientist',
-            selected = false,
+            selected = true,
         },
 
         {
-            fileName = 'zombie_soldier.xml',
+            fileName = 'zombie_soldier',
             name = 'Soldier',
-            selected = false,
+            selected = true,
         },
 
         {
-            fileName = 'zombie_soldier_swat.xml',
+            fileName = 'zombie_soldier_swat',
             name = 'SWAT',
-            selected = false
+            selected = true
         },
 
     }
@@ -34,46 +34,56 @@ end
 
 function manageZombieSpawning()
 
-    if GetString('game.player.tool') == 'zombieController' and InputPressed('rmb') then
-        showSpawnMenu = not showSpawnMenu
+    if GetString('game.player.tool') == 'zombieController' then
+
+        if InputPressed('rmb') then
+            showSpawnMenu = not showSpawnMenu
+        end
+
+        if showSpawnMenu then -- Menu is showing.
+
+            UiMakeInteractive()
+
+        else -- Allow spawning.
+
+            spawnZombies()
+
+        end
+
     end
 
-    if showSpawnMenu then -- Menu is showing.
+end
 
-        UiMakeInteractive()
+function spawnZombies()
 
-    else -- Allow spawning.
+    if InputPressed('lmb') and not showSpawnMenu then
 
-        if InputPressed('lmb') and not showSpawnMenu then
-
-            -- Choose random zombie to spawn.
-            local selectedZombies = {}
-            for i = 1, #selectedZombiePrefabs do
-                if selectedZombiePrefabs[i].selected then
-                    table.insert(selectedZombies, i)
-                end
+        -- Choose random zombie to spawn.
+        local selectedZombies = {}
+        for i = 1, #selectedZombiePrefabs do
+            if selectedZombiePrefabs[i].selected then
+                table.insert(selectedZombies, i)
             end
-            local prefabFilename = selectedZombiePrefabs[GetRandomIndex(selectedZombies)].fileName
+        end
+        local prefabFilename = selectedZombiePrefabs[GetRandomIndex(selectedZombies)].fileName
 
-            beep()
+        beep()
 
-            -- Spawn a random zombie from the selected zombies.
-            local hit, hitPos = raycastFromTransform(GetCameraTransform())
-            if hit then
+        -- Spawn a random zombie from the selected zombies.
+        local hit, hitPos = raycastFromTransform(GetCameraTransform())
+        if hit then
 
-                local entities = Spawn('MOD/prefabs/' .. prefabFilename, Transform(hitPos))
-                for key, entity in pairs(entities) do
+            local entities = Spawn('MOD/prefabs/' .. prefabFilename .. '.xml', Transform(hitPos))
+            for key, entity in pairs(entities) do
 
-                    if GetEntityType(entity) == "body" then
+                if GetEntityType(entity) == "body" then
 
-                        if HasTag(entity, 'ai_zombie') then
+                    if HasTag(entity, 'ai_zombie') then
 
-                            zombieId = zombieId + 1
-                            local zombie = createZombie(entity, zombieId)
+                        zombieId = zombieId + 1
+                        local zombie = createZombie(entity, zombieId)
 
-                            table.insert(zombiesTable, zombie)
-
-                        end
+                        table.insert(zombiesTable, zombie)
 
                     end
 
@@ -86,4 +96,3 @@ function manageZombieSpawning()
     end
 
 end
-

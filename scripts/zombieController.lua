@@ -27,7 +27,7 @@ function runZombieController()
                 zombiesTable[i].ai.targetPos = game.ppos
             end
 
-        elseif InputDown('r') then -- setting target..
+        elseif InputPressed('r') then -- setting target..
 
             zombieController.isActive = true
 
@@ -39,16 +39,8 @@ function runZombieController()
                 end
             end
 
-        else
-            for i = 1, #zombiesTable do
-                zombiesTable[i].ai.targetPos = nil
-            end
         end
 
-    -- elseif zombieController.isActive == false then -- not using controller..
-    --     for i = 1, #zombiesTable do
-    --         zombiesTable[i].ai.targetPos = game.ppos
-    --     end
     end
 
     zcLight()
