@@ -138,6 +138,9 @@ function tableSwapIndex(t, i1, i2)
     t[i2] = temp
     return t
 end
+function GetRandomIndex(tb)
+    return tb[math.random(1, #tb)]
+end
 
 
 function raycastFromTransform(tr, distance, rad, rejectBody)
@@ -241,6 +244,11 @@ end
 --- return number if not = 0, else return 0.00000001
 function rdm(min, max)
     return math.random(min or 0, max or 1)
+end
+function oscillate(time)
+    local a = (GetTime() / (time or 1)) % 1
+    a = a * math.pi
+    return math.sin(a)
 end
 
 

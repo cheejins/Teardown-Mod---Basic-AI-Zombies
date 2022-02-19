@@ -1,6 +1,3 @@
-#include "scripts/utility.lua"
-#include "scripts/zombie.lua"
-
 -- ====================================================================================================
 -- Basic Ai Zombies - by: Cheejins
 -- ====================================================================================================
@@ -22,31 +19,24 @@ function runZombieController()
 
     if GetString('game.player.tool') == "zombieController" then -- using controller..
 
-        if InputDown('rmb') then -- release target..
-
-            -- DebugWatch('zombie controller','target reset')
+        if InputPressed('r') and zombieController.isActive then -- release target..
 
             zombieController.isActive = false
+
             for i = 1, #zombiesTable do
                 zombiesTable[i].ai.targetPos = game.ppos
             end
 
-        elseif InputDown('lmb') or zombieController.isActive then -- setting target..
-
-            -- DebugWatch('zombie controller','target active')
+        elseif InputDown('r') then -- setting target..
 
             zombieController.isActive = true
 
-            if InputDown('lmb') then
-                local camTr = GetCameraTransform()
-                local hit, pos = raycastFromTransform(camTr)
-                if hit then
-                    for i = 1, #zombiesTable do
-                        zombiesTable[i].ai.targetPos = pos
-                        zombieController.pos = pos
-                    end
+            local hit, pos = raycastFromTransform(GetCameraTransform())
+            if hit then
+                for i = 1, #zombiesTable do
+                    zombiesTable[i].ai.targetPos = pos
+                    zombieController.pos = pos
                 end
-                -- DebugWatch('zombie controller','target set')
             end
 
         else
@@ -55,10 +45,10 @@ function runZombieController()
             end
         end
 
-    elseif zombieController.isActive == false then -- not using controller..
-        for i = 1, #zombiesTable do
-            zombiesTable[i].ai.targetPos = game.ppos
-        end
+    -- elseif zombieController.isActive == false then -- not using controller..
+    --     for i = 1, #zombiesTable do
+    --         zombiesTable[i].ai.targetPos = game.ppos
+    --     end
     end
 
     zcLight()

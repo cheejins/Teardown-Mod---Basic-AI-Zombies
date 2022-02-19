@@ -12,6 +12,8 @@
 -- This script handles the movement, actions and AI of the zombie.
 -- ----------------------------------------------------------------------------------------------------
 
+
+zombieId = 0
 zombiesTable = {}
 
 
@@ -19,7 +21,8 @@ function initZombies()
     local zombieBodies = FindBodies("ai_zombie", true)
     for i = 1, #zombieBodies do -- Store body references.
         local body = zombieBodies[i]
-        local zombie = createZombie(body, i)
+        zombieId = zombieId + 1
+        local zombie = createZombie(body, zombieId)
         table.insert(zombiesTable, zombie)
     end
     zombieMetatable = createZombie()
@@ -60,7 +63,7 @@ function zombieProcessAi(zombie)
 
     zombieProcessState(zombie)
 
-    -- Attack charge-up timer. 
+    -- Attack charge-up timer.
     if zombie.ai.state ~= zombie.ai.states.attacking then
         zombie.timers.attack.chargeUp.time = zombie.timers.attack.chargeUp.deafult
         zombie.sounds.chargeUpPlayed = false
@@ -105,48 +108,52 @@ function zombieProcessState(zombie)
 
 end
 
-stateFunctions = {
-
-    still = function(zombie)
-        zombie.outlineColor = colors.black
-
-        local speed = 0
-        -- zombieChaseTarget(zombie, speed)
-        if isZombieOnGround(zombie) and zombie.isVelLow() then
-            zombieMoveWalk(zombie, 0, 1.5) -- hop in place
-            zombieKeepUpright(zombie)
-        end
-
-    end,
-
-    -- idle = function(zombie) end,
-    -- alert = function(zombie) end,
-
-    seeking = function(zombie)
-        zombie.outlineColor = colors.white
-
-        local speed = zombie.movement.speeds.random
-        zombieChaseTarget(zombie, speed)
-    end,
 
 
-    chasing = function(zombie)
-        zombie.outlineColor = colors.yellow
+function initStateFunctions()
+    stateFunctions = {
 
-        local speed = zombie.movement.speeds.run
-        zombieChaseTarget(zombie, speed)
-    end,
+        still = function(zombie)
+            zombie.outlineColor = colors.black
+
+            local speed = 0
+            -- zombieChaseTarget(zombie, speed)
+            if isZombieOnGround(zombie) and zombie.isVelLow() then
+                zombieMoveWalk(zombie, 0, 1.5) -- hop in place
+                zombieKeepUpright(zombie)
+            end
+
+        end,
+
+        -- idle = function(zombie) end,
+        -- alert = function(zombie) end,
+
+        seeking = function(zombie)
+            zombie.outlineColor = colors.white
+
+            local speed = zombie.movement.speeds.random
+            zombieChaseTarget(zombie, speed)
+        end,
 
 
-    attacking = function(zombie)
-        zombie.outlineColor = colors.red
+        chasing = function(zombie)
+            zombie.outlineColor = colors.yellow
 
-        local speed = zombie.movement.speeds.attacking
-        zombieChaseTarget(zombie, speed)
-        zombieAttackPlayer(zombie)
-    end,
+            local speed = zombie.movement.speeds.run
+            zombieChaseTarget(zombie, speed)
+        end,
 
-}
+
+        attacking = function(zombie)
+            zombie.outlineColor = colors.red
+
+            local speed = zombie.movement.speeds.attacking
+            zombieChaseTarget(zombie, speed)
+            zombieAttackPlayer(zombie)
+        end,
+
+    }
+end
 
 
 --[[ZOMBIE MOVEMENT]]
@@ -242,7 +249,7 @@ function zombieAttackPlayer(zombie)
 
         else
             -- countdown until next hit.
-            zombie.timers.attack.hit.timer = zombie.timers.attack.hit.timer - GetTimeStep() 
+            zombie.timers.attack.hit.timer = zombie.timers.attack.hit.timer - GetTimeStep()
         end
 
     else

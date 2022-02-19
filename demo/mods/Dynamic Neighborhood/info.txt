@@ -1,0 +1,3 @@
+name = Dynamic Neighborhood
+author = HoodI
+description = Dynamic neighborhood using joints to simulate stress and bending. This is not a complete version.

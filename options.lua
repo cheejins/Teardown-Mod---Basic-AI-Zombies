@@ -1,3 +1,5 @@
+#include "scripts/utility.lua"
+
 local ui = {}
 
 function init()
@@ -31,13 +33,13 @@ end
 
 
 function draw()
-    -- initOptions()
+    initOptions()
 
-    -- UiPush()
-    --     drawHeader()
-    --     drawOptions()
-    --     drawCloseButton()
-    -- UiPop()
+    do UiPush()
+        drawHeader()
+        drawOptions()
+        drawCloseButton()
+    UiPop() end
 end
 
 function initOptions()
@@ -52,46 +54,63 @@ function initOptions()
 end
 
 function drawHeader()
-    UiPush()
-        UiTranslate(ui.container.margin, 20)
+    do UiPush()
+        UiTranslate(ui.container.margin, 10)
 
         UiColor(1, 1, 1)
-        UiFont("bold.ttf", ui.text.size.l)
+        UiFont("bold.ttf", ui.text.size.m)
 
-        UiPush()
+        do UiPush()
             UiColor(ui.bgColor, ui.bgColor, ui.bgColor)
-            local bounds = {1440, 170}
+            local bounds = {1440, 120}
             UiRect(bounds[1], bounds[2])
-        UiPop()
+        UiPop() end
 
         -- Image
-        UiPush()
+        do UiPush()
             UiTranslate(22.5, 22.5)
-            UiImageBox("MOD/Preview.jpg", 120, 120, 1, 1)
-        UiPop()
+            UiImageBox("MOD/Preview.jpg", 80, 80, 1, 1)
+        UiPop() end
         -- Title
-        UiTranslate(160, 20)
+        UiTranslate(120, 20)
         UiAlign("left top")
-        UiFont("bold.ttf", ui.text.size.l * 2)
-        UiText("Basic AI Zombies (Options)")
+        UiFont("bold.ttf", ui.text.size.m * 2)
+        UiText("Basic AI Zombies")
         -- Author
-        UiTranslate(0, 80)
-        UiFont("bold.ttf",  ui.text.size.l)
+        UiTranslate(0, ui.text.size.m*2)
+        UiFont("bold.ttf",  ui.text.size.m)
         UiText("By: Cheejins")
-    UiPop()
-    UiTranslate(0,195)
+    UiPop() end
+
+    -- Demo map
+    do UiPush()
+        UiTranslate(UiCenter(), 70)
+
+        local c = oscillate(2)/3 + 2/3
+        UiColor(c,1,c,1)
+        UiFont("bold.ttf",  48)
+        UiAlign('center middle')
+
+        UiButtonImageBox("ui/common/box-outline-6.png", 10,10)
+        UiButtonHoverColor(0.5,1,0.5,1)
+        if UiTextButton('Start Demo Map', 350, 90) then
+            StartLevel('', 'demo/demo.xml', '')
+        end
+    UiPop() end
+
+    UiTranslate(0,120)
 end
 
 function drawOptions()
 
-    local componentHeight = 700
+    local componentHeight = 800
 
     -- Container background
-    UiPush()
+    do UiPush()
         UiTranslate(ui.container.margin, 20)
         UiColor(ui.bgColor, ui.bgColor, ui.bgColor)
         UiRect(ui.container.width, componentHeight)
-    UiPop()
+    UiPop() end
 
     drawRadarOptions()
 
@@ -103,6 +122,8 @@ function drawRadarOptions()
     local spacing = 150
     local buttonH = 50
     local buttonW = spacing * 0.98
+
+    -- UiTranslate(0, 200)
 
     -- Active image box
     local activeButton = function ()
@@ -117,7 +138,7 @@ function drawRadarOptions()
     end
 
     -- Radar corner table
-    UiPush()
+    do UiPush()
         local corners = {-spacing*2, -spacing, 0, spacing, spacing*2}
 
         UiAlign('center middle')
@@ -130,7 +151,7 @@ function drawRadarOptions()
         UiTranslate(0, ui.text.size.l*1.5)
 
         -- Radar corner buttons
-        UiPush()
+        do UiPush()
 
             UiFont("bold.ttf",  ui.text.size.m)
 
@@ -138,50 +159,50 @@ function drawRadarOptions()
             UiColor(1,1,1)
             UiButtonImageBox("ui/common/box-solid-6.png", 10, 10, ui.fgColor,ui.fgColor,ui.fgColor)
 
-            if GetString('savegame.mod.zombieRadar.corner') == '' then
-                SetString('savegame.mod.zombieRadar.corner','tl')
-            end
-            UiPush()
+            -- if GetString('savegame.mod.zombieRadar.corner') == '' then
+            --     SetString('savegame.mod.zombieRadar.corner','tl')
+            -- end
+            do UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'tl' then activeButton() end
                 UiTranslate(corners[1], 0)
 
                 if UiTextButton('Top Left', buttonW, buttonH) then
                     SetString('savegame.mod.zombieRadar.corner','tl')
                 end
-            UiPop()
-            UiPush()
+            UiPop() end
+            do UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'tr' then activeButton() end
                 UiTranslate(corners[2], 0)
 
                 if UiTextButton('Top Right', buttonW, buttonH) then
                     SetString('savegame.mod.zombieRadar.corner','tr')
                 end
-            UiPop()
-            UiPush()
+            UiPop() end
+            do UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'bl' then activeButton() end
                 UiTranslate(corners[3], 0)
 
                 if UiTextButton('Bottom Left', buttonW, buttonH) then
                     SetString('savegame.mod.zombieRadar.corner','bl')
                 end
-            UiPop()
-            UiPush()
+            UiPop() end
+            do UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'br' then activeButton() end
                 UiTranslate(corners[4], 0)
 
                 if UiTextButton('Bottom Right', buttonW, buttonH) then
                     SetString('savegame.mod.zombieRadar.corner','br')
                 end
-            UiPop()
-            UiPush()
+            UiPop() end
+            do UiPush()
                 if GetString('savegame.mod.zombieRadar.corner') == 'off' then activeButton() end
                 UiTranslate(corners[5], 0)
 
                 if UiTextButton('OFF', buttonW, buttonH) then
                     SetString('savegame.mod.zombieRadar.corner','off')
                 end
-            UiPop()
-        UiPop()
+            UiPop() end
+        UiPop() end
 
 
         --[[MISC]]
@@ -189,11 +210,11 @@ function drawRadarOptions()
         UiText("Misc Options")
 
         -- Zombie Outline
-        UiPush()
+        do UiPush()
             UiFont("bold.ttf",  ui.text.size.m)
             UiTranslate(0, ui.text.size.l*1.5)
 
-            UiPush()
+            do UiPush()
 
                 local toggleText = 'OFF'
                 if GetBool('savegame.mod.options.outline') then
@@ -207,17 +228,17 @@ function drawRadarOptions()
                     SetBool('savegame.mod.options.outline', not GetBool('savegame.mod.options.outline'))
                 end
 
-            UiPop()
-        UiPop()
+            UiPop() end
+        UiPop() end
 
         -- UiTranslate(0, ui.text.size.l*1.5)
 
         -- -- Custom Weapons
-        -- UiPush()
+        -- do UiPush()
         --     UiFont("bold.ttf",  ui.text.size.m)
         --     UiTranslate(0, ui.text.size.l*1.5)
 
-        --     UiPush()
+        --     do UiPush()
         --         local toggleText = 'OFF'
         --         if GetBool('savegame.mod.options.customWeapons') then
         --             activeButton()
@@ -229,15 +250,15 @@ function drawRadarOptions()
         --         if UiTextButton('Custom Weapons = ' .. toggleText, buttonW*2.2, buttonH) then
         --             SetBool('savegame.mod.options.customWeapons', not GetBool('savegame.mod.options.customWeapons'))
         --         end
-        --     UiPop()
-        -- UiPop()
+        --     UiPop() end
+        -- UiPop() end
 
-    UiPop()
+    UiPop() end
 end
 
 function drawCloseButton()
 
-    UiPush()
+    do UiPush()
         UiColor(1,0,0,1)
         UiTranslate(UiCenter(), 50)
         UiAlign("center top")
@@ -246,6 +267,5 @@ function drawCloseButton()
         if UiTextButton("Close", 200, 40) then
             Menu()
         end
-    UiPop()
+    UiPop() end
 end
-

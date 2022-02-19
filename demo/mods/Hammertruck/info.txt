@@ -1,0 +1,3 @@
+name = Hammertruck
+author = My Cresta
+description = Control with Left and Right Click!

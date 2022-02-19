@@ -1,11 +1,16 @@
+#include "scripts/boids.lua"
+#include "scripts/customWeapons.lua"
+#include "scripts/info.lua"
+#include "scripts/spawnMenu.lua"
+#include "scripts/spawning.lua"
 #include "scripts/utility.lua"
 #include "scripts/zombie.lua"
+#include "scripts/zombie.lua"
+#include "scripts/zombieConstructor.lua"
 #include "scripts/zombieRadar.lua"
-#include "scripts/info.lua"
-#include "scripts/customWeapons.lua"
--- #include "mods/C Glock/main.lua"
--- #include 'mods/C M4A1/main.lua'
--- #include 'mods/C P90/main.lua'
+-- #include "mods/CGlock/main.lua"
+-- #include "mods/CM4A1/main.lua"
+-- #include "mods/CP90/main.lua"
 
 
 -- ================================================================
@@ -21,10 +26,13 @@
 --[[INIT]]
 function init()
 
-    initMod()
+    initGame()
     initMap()
     initBoids()
+    initOptionsMain()
+    initSpawnMenu()
 
+    initStateFunctions()
     initZombies() -- Init zombies last after all other values are set.
     initZombieController()
 
@@ -32,21 +40,21 @@ function init()
     -- initM4A1()
     -- initP90()
 
-
 end
 
 
 
 --[[TICK]]
-function tick()
+function tick(dt)
 
     -- Game..
     updateGameTable()
+    manageZombieSpawning()
 
     -- Custom Weapons
-    -- runGlock18()
-    -- runM4A1()
-    -- runP90()
+    -- runGlock18(dt)
+    -- runM4A1(dt)
+    -- runP90(dt)
 
     -- Zombies..
     manageZombies()
@@ -58,11 +66,12 @@ function tick()
     -- disableTools()
 
     -- Debug.
-    -- debugMod()
+    debugMod()
 
 end
 
 function draw()
+
     UiPush()
         runZombieRadar()
     UiPop()
@@ -70,15 +79,23 @@ function draw()
     UiPush()
         drawInfoUi()
     UiPop()
+
+    UiPush()
+        drawZombieSpawningMenu()
+    UiPop()
+
+    -- drawGlock18()
+    -- drawM4A1()
+    -- drawP90()
 end
 
 
 --[[DEBUG]]
 function debugMod()
-    -- DebugWatch('#zombiesTable', #zombiesTable)
+    DebugWatch('#zombiesTable', #zombiesTable)
     for i = 1, #zombiesTable do
         local zombie = zombiesTable[i]
-        -- DebugWatch("Zombie"..zombie.id.." state", zombie.ai.state)
+        DebugWatch("Zombie"..zombie.id.." state", zombie.ai.state)
     end
 end
 function debugZombie(zombie)
@@ -99,7 +116,7 @@ function updateGameTable()
     game.playerAabb.min = VecAdd(game.ppos, Vec(game.playerAabb.minAdd))
     game.playerAabb.max = VecAdd(game.ppos, Vec(game.playerAabb.maxAdd))
 end
-function initMod()
+function initGame()
     colors = getColors()
 
     game = {
@@ -163,7 +180,16 @@ function initMod()
     end
 
 end
+function initOptionsMain()
+    if GetBool('savegame.mod.options.init') == false then
 
+        SetString('savegame.mod.zombieRadar.corner', 'tr')
+        SetBool('savegame.mod.options.outline', true)
+        -- SetBool('savegame.mod.options.customWeapons', true)
+
+        SetBool('savegame.mod.options.init', true)
+    end
+end
 
 
 --[[MAP]]

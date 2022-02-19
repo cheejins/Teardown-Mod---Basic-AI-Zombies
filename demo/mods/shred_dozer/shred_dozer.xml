@@ -1,0 +1,88 @@
+<prefab version="0.7.2">
+	<group id_="1841280768" open_="true" name="instance=MOD/demo/mods/shred_dozer/shred_dozer.xml" pos="-0.1 0.8 -2.6" rot="0.0 90.0 0.0">
+		<script id_="1347240192" pos="0 0.2 0" file="MOD/demo/mods/shred_dozer/shred.lua"/>
+		<script id_="698984128" pos="0 0.2 0" file="MOD/demo/mods/shred_dozer/shredder.lua"/>
+		<vehicle id_="1031075264" open_="true" name="shred_dozer" tags="shred=rotate" pos="0.0 0.3 0.0" rot="0.0 90.0 0.0" driven="false" sound="excavator" spring="2" damping="1" topspeed="30" acceleration="5" strength="8" antispin="0" antiroll="0.9" difflock="1" steerassist="1" friction="4">
+			<body id_="1617723776" open_="true" pos="-0.05 0.6 -0.25" rot="0.0 0.0 0.0" dynamic="true" desc="ShredDozer">
+				<vox id_="1786030592" open_="true" pos="-0.05 0.1 0.25" rot="0 180 0" texture="7 .8" density="500" strength="500" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="body">
+					<light id_="29558540" pos="0.85 1.35 -3.8" rot="0.0 -180.0 0.0" type="area" color="1 .1 .1" size="0.1 0.1" unshadowed="0.3" fogscale="0.1"/>
+					<light id_="487093280" pos="0.05 1.5 -1.65" rot="90.0 180.0 0.0" type="area" color="1.0 0.0 0.0" scale="2" size="0.1 0.1" unshadowed="2" fogscale="0.1"/>
+					<light id_="2006572672" pos="0.05 3.5 -0.85" rot="90.0 180.0 0.0" type="area" color="0.98 0.98 0.98" scale="1" size="0.1 0.1" fogscale="0.1"/>
+					<light id_="366958464" pos="0.05 1.5 1.05" rot="90.0 180.0 0.0" type="area" color="0.99 0.01 0.01" scale="2" size="0.1 0.1" unshadowed="2" fogscale="0.1"/>
+					<light id_="2052581760" pos="0.05 1.6 2.45" rot="-90.0 180.0 0.0" type="cone" color="1.0 0.0 0.0" scale="50" angle="150" size="0.1 0.1" reach=".75" fogscale="0.1"/>
+					<light id_="90051960" pos="-0.75 1.35 -3.8" rot="0.0 -180.0 0.0" type="area" color="1 .1 .1" size="0.1 0.1" unshadowed="0.3" fogscale="0.1"/>
+					<light id_="1956762240" pos="-0.55 1.35 -3.8" rot="0.0 -180.0 0.0" type="area" color="1 .1 .1" scale="10" size="0.1 0.1" unshadowed="0.2" fogscale="0.1" glare="0.1"/>
+					<light id_="1999297664" pos="0.65 1.35 -3.8" rot="0.0 -180.0 0.0" type="area" color="1 .1 .1" scale="10" size="0.1 0.1" unshadowed="0.2" fogscale="0.1" glare="0.1"/>
+					<light id_="823116864" pos="-0.65 1.35 -3.8" rot="0.0 -180.0 0.0" type="cone" color="0.99 0.97 0.97" scale="10" size="0.1" unshadowed="0.3" fogscale="0.1" glare="0.2"/>
+					<light id_="1210523776" pos="0.75 1.35 -3.8" rot="0.0 -180.0 0.0" type="cone" color="0.99 0.97 0.97" scale="10" size="0.1" unshadowed="0.3" fogscale="0.1" glare="0.2"/>
+					<light id_="1126567040" pos="0.85 3.65 0.0" rot="17.5 28.5 9.8" type="cone" color="1 .9 .8" scale="50" angle="90" penumbra="30" size="0.1" unshadowed="0.2" fogscale="0.1" glare="0.3"/>
+					<light id_="1843509120" pos="-0.75 3.65 0.0" rot="17.5 -28.5 -9.8" type="cone" color="1 .9 .8" scale="50" angle="90" penumbra="30" size="0.1" unshadowed="0.2" fogscale="0.1" glare="0.3"/>
+					<location id_="1206329216" tags="exhaust" pos="0.55 2.15 2.35" rot="-90.0 -180.0 0.0"/>
+					<location id_="1939852928" tags="exhaust" pos="-0.45 2.15 2.35" rot="-90.0 -180.0 0.0"/>
+					<location id_="701146944" tags="vital" pos="0.05 1.05 2.4" rot="-180.0 360.0 -180.0"/>
+					<location id_="1732287744" tags="player" pos="0.05 3.35 -1.15" rot="0.0 0.0 0.0"/>
+					<location id_="723889280" tags="exhaust" pos="-0.45 2.15 2.55" rot="-90.0 -180.0 0.0"/>
+					<location id_="1444370560" tags="exhaust" pos="0.55 2.15 2.55" rot="-90.0 -180.0 0.0"/>
+					<location id_="1862843392" tags="exhaust" pos="-0.45 2.15 2.75" rot="-90.0 -180.0 0.0"/>
+					<location id_="500528992" tags="exhaust" pos="0.55 2.15 2.75" rot="-90.0 -180.0 0.0"/>
+					<location id_="263732960" tags="exhaust" pos="-0.45 2.15 2.15" rot="-90.0 -180.0 0.0"/>
+					<location id_="1033500288" tags="exhaust" pos="0.55 2.15 2.15" rot="-90.0 -180.0 0.0"/>
+					<location id_="1846130688" tags="exhaust" pos="0.55 2.15 2.35" rot="-90.0 -180.0 30.0"/>
+					<location id_="544244160" tags="exhaust" pos="-0.45 2.15 2.35" rot="-90.0 -180.0 -30.0"/>
+					<location id_="675979584" tags="exhaust" pos="0.55 2.15 2.15" rot="-90.0 -180.0 30.0"/>
+					<location id_="888722432" tags="exhaust" pos="-0.45 2.15 2.15" rot="-90.0 -180.0 -30.0"/>
+					<location id_="1575843712" tags="exhaust" pos="0.55 2.15 2.75" rot="-90.0 -180.0 30.0"/>
+					<location id_="50727960" tags="exhaust" pos="-0.45 2.15 2.75" rot="-90.0 -180.0 -30.0"/>
+					<location id_="1292579840" tags="exhaust" pos="0.55 2.15 2.55" rot="-90.0 -180.0 30.0"/>
+					<location id_="930602432" tags="exhaust" pos="-0.45 2.15 2.55" rot="-90.0 -180.0 -30.0"/>
+					<location id_="24511960" tags="exhaust" pos="0.55 2.15 2.35" rot="-90.0 180.0 0.0"/>
+					<location id_="530153056" tags="exhaust" pos="-0.45 2.15 2.35" rot="-90.0 180.0 0.0"/>
+					<location id_="1224745984" tags="exhaust" pos="0.55 2.15 2.15" rot="-90.0 180.0 0.0"/>
+					<location id_="416310080" tags="exhaust" pos="-0.45 2.15 2.15" rot="-90.0 -180.0 0.0"/>
+					<location id_="2131164160" tags="exhaust" pos="0.55 2.15 2.75" rot="-90.0 -180.0 0.0"/>
+					<location id_="1583249792" tags="exhaust" pos="-0.45 2.15 2.75" rot="-90.0 -180.0 0.0"/>
+					<location id_="295388768" tags="exhaust" pos="0.55 2.15 2.55" rot="-90.0 -180.0 0.0"/>
+					<location id_="779794944" tags="exhaust" pos="-0.45 2.15 2.55" rot="-90.0 -180.0 0.0"/>
+					<vox id_="1318992512" pos="0.05 -0.2 4.6" rot="-10.0 0.0 0.0" texture="7" density="100" strength="5000" prop="false" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="blade"/>
+				</vox>
+				<wheel id_="1959252736" open_="true" name="bl1" pos="-1.65 0.45 3.5" drive="1" steer="-1" travel="-.1 .1">
+					<vox id_="1226712192" pos="-0.5 -0.85 -0.05" rot="0.0 -180.0 0.0" texture="7" density="10" strength="100" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="wheel_bl1"/>
+				</wheel>
+				<wheel id_="479490624" open_="true" name="bl2" pos="-1.65 0.45 1.4" drive="1" steer="-.5" travel="-.1 .1">
+					<vox id_="506099872" pos="-0.5 -0.85 -0.05" rot="0.0 -180.0 0.0" texture="7" density="10" strength="100" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="wheel_bl2"/>
+				</wheel>
+				<wheel id_="489190560" open_="true" name="br1" pos="1.45 0.45 3.5" drive="1" steer="-1" travel="-.1 .1">
+					<vox id_="1843181440" pos="0.6 -0.85 -0.05" rot="0 180 0" texture="7" density="10" strength="100" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="wheel_br1"/>
+				</wheel>
+				<wheel id_="1206919040" open_="true" name="br2" pos="1.45 0.45 1.4" drive="1" steer="-.5" travel="-.1 .1">
+					<vox id_="1973212800" pos="0.6 -0.85 -0.05" rot="0 180 0" texture="7" density="10" strength="100" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="wheel_br2"/>
+				</wheel>
+				<wheel id_="395337280" open_="true" name="fl1" pos="-1.65 0.45 -2.9" drive="1" steer="1" travel="-.1 .1">
+					<vox id_="1421366016" pos="-0.5 -0.85 -0.05" rot="0 180 0" texture="7" density="10" strength="100" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="wheel_fl1"/>
+				</wheel>
+				<wheel id_="140386688" open_="true" name="fl2" pos="-1.65 0.45 -0.8" drive="1" steer=".5" travel="-.1 .1">
+					<vox id_="1871494656" pos="-0.5 -0.85 -0.05" rot="0 180 0" texture="7" density="10" strength="100" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="wheel_fl2"/>
+				</wheel>
+				<wheel id_="693085504" open_="true" name="fr1" pos="1.45 0.45 -2.9" drive="1" steer="1" travel="-.1 .1">
+					<vox id_="219296832" pos="0.6 -0.85 -0.05" rot="0 180 0" texture="7" density="10" strength="100" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="wheel_fr1"/>
+				</wheel>
+				<wheel id_="1372342016" open_="true" name="fr2" pos="1.45 0.45 -0.8" drive="1" steer=".5" travel="-.1 .1">
+					<vox id_="168175648" pos="0.6 -0.85 -0.05" rot="0 180 0" texture="7" density="10" strength="100" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="wheel_fr2"/>
+				</wheel>
+				<body id_="181480256" open_="true" dynamic="true" desc="Shredder Arm">
+					<vox id_="368203712" open_="true" pos="-0.05 1.3 -3.15" rot="0.0 -180.0 0.0" texture="7 .8" density="100" strength="3000" prop="false" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="arm">
+						<joint id_="1849080064" pos="2.4 0.25 -3.45" rot="0 -90 0" type="hinge" size="0.2" rotstrength="0" rotspring="0" limits="3 30"/>
+						<joint id_="1374111616" pos="-2.3 0.25 -3.45" rot="0 -90 0" type="hinge" size="0.2" rotstrength="0" rotspring="0" limits="3 30"/>
+						<light id_="1251420800" pos="2.55 0.25 3.8" type="cone" scale="50" unshadowed="0.2" fogscale="0.1" glare="0.3"/>
+						<light id_="757773504" pos="-2.45 0.25 3.8" type="cone" scale="50" unshadowed="0.2" fogscale="0.1" glare="0.3"/>
+					</vox>
+					<vox id_="2115565696" open_="true" name="shred_wheel" pos="-0.05 1.55 -8.45" rot="-90.0 180.0 0.0" texture="8" density="200" strength="3000" prop="true" file="MOD/demo/mods/shred_dozer/shred_dozer.vox" object="shred_wheel">
+						<joint id_="1951912320" tags="rotate" pos="-2.3 1.6 0.0" rot="0 -90 0" type="hinge" size="0.2"/>
+						<joint id_="1071644544" tags="rotate" pos="2.4 1.6 0.0" rot="0 -90 0" type="hinge" size="0.2"/>
+					</vox>
+				</body>
+			</body>
+		</vehicle>
+	</group>
+</prefab>
+

@@ -1,0 +1,307 @@
+<scene id_="913955328" open_="true" version="0.5.3" shadowVolume="200 100 200">
+	<environment id_="1381845376" template="sunny" skyboxrot="-45"/>
+	<body id_="1145770240">
+		<voxbox id_="1362117760" pos="-100.0 -0.1 -100.0" size="2000 1 2000"/>
+	</body>
+	<group id_="377313792" name="houses" pos="0.1 -0.1 -6.9">
+		<body id_="673685632" open_="true" pos="-0.1 0.1 6.9">
+			<vox id_="2033902848" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+			<body id_="1209802880" open_="true" pos="-0.1 0.1 6.9">
+				<vox id_="1163597184" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+				<body id_="59117080" open_="true" pos="-0.1 0.1 6.9">
+					<vox id_="419390464" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+					<body id_="522026112" open_="true" pos="-0.1 0.1 6.9">
+						<vox id_="652385152" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+						<body id_="1758634880" open_="true" pos="-0.1 0.1 6.9">
+							<vox id_="862178688" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+							<body id_="1696175232" open_="true" pos="-0.1 0.1 6.9">
+								<vox id_="1959777024" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+								<body id_="2125724416" open_="true" pos="-0.1 0.1 6.9">
+									<vox id_="1290548096" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+									<body id_="1395018880" open_="true" pos="-0.1 0.1 6.9">
+										<vox id_="1789635200" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+										<body id_="1309030400" open_="true" pos="-0.1 0.1 6.9">
+											<vox id_="430007936" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+											<body id_="1072627648" open_="true" pos="-0.1 0.1 6.9">
+												<vox id_="555189312" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+												<body id_="1862581248" open_="true" pos="-0.1 0.1 6.9">
+													<vox id_="1260530816" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+													<body id_="1587837568" pos="-0.1 0.1 6.9">
+														<vox id_="24577500" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+													</body>
+												</body>
+											</body>
+										</body>
+									</body>
+								</body>
+							</body>
+						</body>
+					</body>
+				</body>
+			</body>
+			<body id_="551060352" open_="true" pos="10.4 0.1 -0.4">
+				<vox id_="1331576192" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+				<body id_="1947521152" open_="true" pos="-0.1 0.1 6.9">
+					<vox id_="1007874112" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+					<body id_="753054592" open_="true" pos="-0.1 0.1 6.9">
+						<vox id_="2122054144" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+						<body id_="1648986368" open_="true" pos="-0.1 0.1 6.9">
+							<vox id_="521305152" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+							<body id_="440690944" open_="true" pos="-0.1 0.1 6.9">
+								<vox id_="359290272" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+								<body id_="427255264" open_="true" pos="-0.1 0.1 6.9">
+									<vox id_="969271040" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+									<body id_="1823322752" open_="true" pos="-0.1 0.1 6.9">
+										<vox id_="217199552" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+										<body id_="1675988864" open_="true" pos="-0.1 0.1 6.9">
+											<vox id_="1336884864" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+											<body id_="849398400" open_="true" pos="-0.1 0.1 6.9">
+												<vox id_="1850587392" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+												<body id_="1198529920" open_="true" pos="-0.1 0.1 6.9">
+													<vox id_="713075200" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+													<body id_="1024783424" open_="true" pos="-0.1 0.1 6.9">
+														<vox id_="2087842304" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+														<body id_="432236288" pos="-0.1 0.1 6.9">
+															<vox id_="763737600" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+														</body>
+													</body>
+												</body>
+											</body>
+										</body>
+									</body>
+								</body>
+							</body>
+						</body>
+					</body>
+				</body>
+				<body id_="1223172992" open_="true" pos="10.4 0.1 -0.4">
+					<vox id_="1649051904" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+					<body id_="1260530816" open_="true" pos="-0.1 0.1 6.9">
+						<vox id_="1947324416" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+						<body id_="126819904" open_="true" pos="-0.1 0.1 6.9">
+							<vox id_="941416576" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+							<body id_="1669828096" open_="true" pos="-0.1 0.1 6.9">
+								<vox id_="1870839296" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+								<body id_="278479456" open_="true" pos="-0.1 0.1 6.9">
+									<vox id_="1328168064" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+									<body id_="454978688" open_="true" pos="-0.1 0.1 6.9">
+										<vox id_="415589152" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+										<body id_="1374635904" open_="true" pos="-0.1 0.1 6.9">
+											<vox id_="1275670528" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+											<body id_="2032854144" open_="true" pos="-0.1 0.1 6.9">
+												<vox id_="988277632" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+												<body id_="134094840" open_="true" pos="-0.1 0.1 6.9">
+													<vox id_="1622639360" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+													<body id_="1908918016" open_="true" pos="-0.1 0.1 6.9">
+														<vox id_="459042176" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+														<body id_="1023013888" open_="true" pos="-0.1 0.1 6.9">
+															<vox id_="519273408" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+															<body id_="2126838528" pos="-0.1 0.1 6.9">
+																<vox id_="2139815424" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+															</body>
+														</body>
+													</body>
+												</body>
+											</body>
+										</body>
+									</body>
+								</body>
+							</body>
+						</body>
+					</body>
+					<body id_="1555001984" open_="true" pos="10.4 0.1 -0.4">
+						<vox id_="1143476352" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+						<body id_="325143936" open_="true" pos="-0.1 0.1 6.9">
+							<vox id_="1098450432" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+							<body id_="500332352" open_="true" pos="-0.1 0.1 6.9">
+								<vox id_="1729535104" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+								<body id_="2042881792" open_="true" pos="-0.1 0.1 6.9">
+									<vox id_="437086272" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+									<body id_="86643880" open_="true" pos="-0.1 0.1 6.9">
+										<vox id_="554075136" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+										<body id_="843565312" open_="true" pos="-0.1 0.1 6.9">
+											<vox id_="448490208" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+											<body id_="1822995072" open_="true" pos="-0.1 0.1 6.9">
+												<vox id_="1966527744" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+												<body id_="1074331648" open_="true" pos="-0.1 0.1 6.9">
+													<vox id_="1405701888" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+													<body id_="382425888" open_="true" pos="-0.1 0.1 6.9">
+														<vox id_="36440240" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+														<body id_="1430082816" open_="true" pos="-0.1 0.1 6.9">
+															<vox id_="1160189056" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+															<body id_="852020" open_="true" pos="-0.1 0.1 6.9">
+																<vox id_="496268864" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																<body id_="1337278208" pos="-0.1 0.1 6.9">
+																	<vox id_="2028659584" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																</body>
+															</body>
+														</body>
+													</body>
+												</body>
+											</body>
+										</body>
+									</body>
+								</body>
+							</body>
+						</body>
+						<body id_="2105275904" open_="true" pos="10.4 0.1 -0.4">
+							<vox id_="131538784" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+							<body id_="2042750720" open_="true" pos="-0.1 0.1 6.9">
+								<vox id_="1324891136" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+								<body id_="1957286528" open_="true" pos="-0.1 0.1 6.9">
+									<vox id_="1628013568" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+									<body id_="1531014400" open_="true" pos="-0.1 0.1 6.9">
+										<vox id_="1736351232" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+										<body id_="1733074176" open_="true" pos="-0.1 0.1 6.9">
+											<vox id_="2059660032" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+											<body id_="1181555072" open_="true" pos="-0.1 0.1 6.9">
+												<vox id_="1429099648" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+												<body id_="131800944" open_="true" pos="-0.1 0.1 6.9">
+													<vox id_="1986910592" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+													<body id_="1822339712" open_="true" pos="-0.1 0.1 6.9">
+														<vox id_="55709000" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+														<body id_="1452169728" open_="true" pos="-0.1 0.1 6.9">
+															<vox id_="1295660288" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+															<body id_="885510912" open_="true" pos="-0.1 0.1 6.9">
+																<vox id_="89658720" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																<body id_="2490520" open_="true" pos="-0.1 0.1 6.9">
+																	<vox id_="61673140" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																	<body id_="821412800" pos="-0.1 0.1 6.9">
+																		<vox id_="108534240" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																	</body>
+																</body>
+															</body>
+														</body>
+													</body>
+												</body>
+											</body>
+										</body>
+									</body>
+								</body>
+							</body>
+							<body id_="1948176512" open_="true" pos="10.4 0.1 -0.4">
+								<vox id_="879350208" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+								<body id_="2073030144" open_="true" pos="-0.1 0.1 6.9">
+									<vox id_="1211506944" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+									<body id_="225392064" open_="true" pos="-0.1 0.1 6.9">
+										<vox id_="1206001536" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+										<body id_="387210304" open_="true" pos="-0.1 0.1 6.9">
+											<vox id_="387144768" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+											<body id_="1388530432" open_="true" pos="-0.1 0.1 6.9">
+												<vox id_="526286208" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+												<body id_="1652525568" open_="true" pos="-0.1 0.1 6.9">
+													<vox id_="1718852096" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+													<body id_="1510828032" open_="true" pos="-0.1 0.1 6.9">
+														<vox id_="176826912" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+														<body id_="2048845952" open_="true" pos="-0.1 0.1 6.9">
+															<vox id_="2138242560" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+															<body id_="767604480" open_="true" pos="-0.1 0.1 6.9">
+																<vox id_="2023744128" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																<body id_="613782080" open_="true" pos="-0.1 0.1 6.9">
+																	<vox id_="288310464" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																	<body id_="2001788160" open_="true" pos="-0.1 0.1 6.9">
+																		<vox id_="148120400" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																		<body id_="1904723456" pos="-0.1 0.1 6.9">
+																			<vox id_="1692504960" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																		</body>
+																	</body>
+																</body>
+															</body>
+														</body>
+													</body>
+												</body>
+											</body>
+										</body>
+									</body>
+								</body>
+								<body id_="2142371584" open_="true" pos="10.4 0.1 -0.4">
+									<vox id_="886690688" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+									<body id_="2046093312" open_="true" pos="-0.1 0.1 6.9">
+										<vox id_="1381190016" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+										<body id_="299976576" open_="true" pos="-0.1 0.1 6.9">
+											<vox id_="2049173632" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+											<body id_="163981088" open_="true" pos="-0.1 0.1 6.9">
+												<vox id_="168962112" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+												<body id_="573737152" open_="true" pos="-0.1 0.1 6.9">
+													<vox id_="1522363136" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+													<body id_="177285696" open_="true" pos="-0.1 0.1 6.9">
+														<vox id_="438659232" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+														<body id_="1273048960" open_="true" pos="-0.1 0.1 6.9">
+															<vox id_="473919744" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+															<body id_="631150208" open_="true" pos="-0.1 0.1 6.9">
+																<vox id_="1484546560" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																<body id_="1470652032" open_="true" pos="-0.1 0.1 6.9">
+																	<vox id_="1154028288" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																	<body id_="1739103872" open_="true" pos="-0.1 0.1 6.9">
+																		<vox id_="28706520" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																		<body id_="657890496" open_="true" pos="-0.1 0.1 6.9">
+																			<vox id_="681353856" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																			<body id_="669687744" pos="-0.1 0.1 6.9">
+																				<vox id_="1407930240" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																			</body>
+																		</body>
+																	</body>
+																</body>
+															</body>
+														</body>
+													</body>
+												</body>
+											</body>
+										</body>
+									</body>
+									<body id_="492664192" open_="true" pos="10.4 0.1 -0.4">
+										<vox id_="1851505024" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+										<body id_="508262688" open_="true" pos="-0.1 0.1 6.9">
+											<vox id_="426599872" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+											<body id_="1813753984" open_="true" pos="-0.1 0.1 6.9">
+												<vox id_="957146176" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+												<body id_="263995120" open_="true" pos="-0.1 0.1 6.9">
+													<vox id_="1841739520" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+													<body id_="491418912" open_="true" pos="-0.1 0.1 6.9">
+														<vox id_="571443264" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+														<body id_="1227957504" open_="true" pos="-0.1 0.1 6.9">
+															<vox id_="623744192" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+															<body id_="135012400" open_="true" pos="-0.1 0.1 6.9">
+																<vox id_="2048714880" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																<body id_="374692192" open_="true" pos="-0.1 0.1 6.9">
+																	<vox id_="1663339648" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																	<body id_="1849014528" open_="true" pos="-0.1 0.1 6.9">
+																		<vox id_="918870784" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																		<body id_="624792832" open_="true" pos="-0.1 0.1 6.9">
+																			<vox id_="822723648" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																			<body id_="955179968" open_="true" pos="-0.1 0.1 6.9">
+																				<vox id_="1284780672" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																				<body id_="1209671808" pos="-0.1 0.1 6.9">
+																					<vox id_="1222058880" pos="0.0 0.0 0.0" file="LEVEL/basic.vox"/>
+																				</body>
+																			</body>
+																		</body>
+																	</body>
+																</body>
+															</body>
+														</body>
+													</body>
+												</body>
+											</body>
+										</body>
+									</body>
+								</body>
+							</body>
+						</body>
+					</body>
+				</body>
+			</body>
+		</body>
+	</group>
+	<boundary id_="1464032512">
+		<vertex pos="-100.0 -100.0"/>
+		<vertex pos="100.0 -100.0"/>
+		<vertex pos="100.0 100.0"/>
+		<vertex pos="-100.0 100.0"/>
+	</boundary>
+	<script id_="266092400" file="main.lua"/>
+	<script id_="1520724608" file="sandbox.lua"/>
+	<instance id_="1755685504" pos="0.0 0.0 -14.5" file="LEVEL/monsterhammer.xml"/>
+	<layers/>
+</scene>
+

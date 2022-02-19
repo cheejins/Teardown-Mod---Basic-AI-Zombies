@@ -96,7 +96,7 @@ function createZombie(body, id) -- Create zombie.
     }
 
 
-    local randomSpeed = rdm(3,5)
+    local randomSpeed = math.random(3,5) + math.random()
     if randomSpeed < 2 then
         randomSpeed = 2
     end

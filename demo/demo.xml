@@ -1,0 +1,681 @@
+<scene id_="1374570368" open_="true" version="0.7.4" shadowVolume="200 50 200">
+	<group id_="725396736" open_="true" name="map static">
+		<location id_="1091961984" tags="ai_zombie_map"/>
+		<spawnpoint id_="1586920064" name="spawnpoint" pos="71.9 2.3 -172.60001" rot="0.0 0.0 0.0"/>
+		<boundary id_="2003295616" pos="0.0 1.4 0.0">
+			<vertex pos="-150.0 -150.0"/>
+			<vertex pos="36.8 -150.10001"/>
+			<vertex pos="36.8 -197.5"/>
+			<vertex pos="106.8 -197.5"/>
+			<vertex pos="106.8 -149.90001"/>
+			<vertex pos="150.0 -150.2"/>
+			<vertex pos="149.90001 150.0"/>
+			<vertex pos="-150.0 150.10001"/>
+		</boundary>
+		<environment id_="2089349632" template="sunny" fogParams="0 0 0 0"/>
+	</group>
+	<group id_="876531968" name="ground"/>
+	<group id_="592481600" open_="true" name="areas">
+		<group id_="168831040" open_="true" name="area1" pos="73.2 0.0 57.1">
+			<voxscript id_="848874112" pos="-73.3 0.5 -57.1" texture="4" file="MOD/demo/map/ground.lua">
+				<parameters file="MOD/demo/map/sb_hills.png" scale="64"/>
+				<group id_="165816192" open_="true" name="area edge" pos="74.8 1.6 74.8">
+					<voxbox id_="1709807488" tags="invisible" pos="75.2 -0.5 -75.0" size="1 25 1504" color="0.13 0.13 0.13"/>
+					<voxbox id_="1497392384" pos="-74.9 -0.5 75.20001" size="1504 25 1" color="0.13 0.13 0.13"/>
+				</group>
+			</voxscript>
+			<group id_="1459706880" open_="true" name="props" pos="0.0 -0.8 0.0">
+				<group id_="1990253184" open_="true" name="large pines" pos="0.8 0.4 40.7">
+					<vox id_="2025579264" pos="47.0 3.4 25.6" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="473526496" pos="27.4 3.1 -19.4" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="487289888" pos="24.9 3.1 -35.6" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1203314432" pos="60.1 3.1 -32.9" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1603698304" pos="-5.8 3.1 -85.1" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="3473620" pos="-10.4 3.1 1.7" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="401104800" pos="-7.3 3.1 -54.8" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="872730624" pos="-2.7 3.1 -72.4" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1281896832" pos="42.2 3.1 -32.5" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="288113856" pos="11.0 3.1 -27.7" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="908515456" pos="1.2 3.1 -9.6" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1227105408" pos="57.1 3.5 -18.3" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="2045372288" pos="18.8 2.6 -7.5" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="720940032" pos="58.6 2.6 31.3" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1581938944" pos="35.2 3.0 -10.2" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1255222016" pos="44.8 3.8 -19.9" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1590786816" pos="64.6 3.5 -2.9" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="28575440" pos="12.1 3.4 1.8" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="2036655488" pos="3.2 3.2 16.9" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="2080239616" pos="14.8 4.8 29.4" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="50662420" pos="28.1 3.5 5.3" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="430925504" pos="43.3 3.0 -1.4" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="912120192" pos="23.8 4.7 21.8" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1095632128" pos="59.3 3.4 11.0" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="965666368" pos="36.7 3.1 18.0" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="850184896" pos="35.3 4.2 35.1" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+				</group>
+				<group id_="388127872" open_="true" name="large pines" pos="-45.0 0.4 51.8" rot="0.0 180.0 0.0">
+					<vox id_="2072309248" pos="-29.2 2.7 80.99998" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+				</group>
+				<group id_="635344768"/>
+				<group id_="18285660" open_="true" name="large pines" pos="-36.1 1.4 -17.90001" rot="0.0 180.0 0.0">
+					<vox id_="1814409344" pos="5.7 1.6 -19.3" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1923074688" pos="-15.5 4.0 -16.5" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1501193728" pos="1.6 0.1 26.9" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="262880944" pos="-16.9 2.5 -3.1" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1479172224" pos="-5.5 0.1 16.6" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="551322496" pos="-4.1 2.7 -11.1" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="187313312" pos="11.6 2.0 -8.3" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1044445440" pos="-17.5 0.1 26.0" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1260661888" pos="-4.0 2.0 2.3" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1193352320" pos="21.5 2.5 2.4" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="293422592" pos="6.8 0.1 8.8" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="893375744" pos="14.8 0.1 29.4" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+					<vox id_="1758569216" pos="19.6 0.1 16.9" texture="4" file="MOD/demo/assets/nature/pine-huge.vox" object="pine-huge"/>
+				</group>
+			</group>
+			<trigger id_="1245980928" tags="trig=grass" pos="4.1 -0.1 20.10001" type="box" size="150 15 150"/>
+		</group>
+		<group id_="1443518464" open_="true" name="area2" pos="-76.8 0.0 57.1">
+			<voxscript id_="1994382208" open_="true" pos="-73.2 -1.6 -57.1" texture="4" file="MOD/demo/map/ground.lua">
+				<parameters file="MOD/demo/map/sb_grass.png" scale="128"/>
+				<group id_="138158320" name="area edge" pos="75.2 2.2 74.8" rot="0.0 -90.0 0.0">
+					<voxbox id_="818529088" tags="invisible" pos="75.1 0.9 -74.9" size="1 25 1500" color="0.13 0.13 0.13"/>
+					<voxbox id_="1149637120" pos="-74.8 1.0 75.1" size="1500 25 1" color="0.13 0.13 0.13"/>
+				</group>
+				<vox id_="1500407168" pos="128.5 2.8 21.4" rot="0.0 140.0 0.0" file="MOD/demo/vox/signs.vox" object="arms"/>
+			</voxscript>
+			<group id_="397303488" name="props"/>
+			<trigger id_="2108683904" tags="trig=grass" pos="-0.1 -0.1 20.1" type="box" size="150 15 150"/>
+			<group id_="630494784" open_="true" name="zombies" pos="0.80001 2.7 28.59999" rot="0.0 -50.0 0.0">
+				<instance id_="1785375104" pos="-33.123 0.0 -51.859" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="2044389248" pos="-7.6 0.0 -4.0" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="924966016" pos="0.7 0.0 -37.3" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="1732091136" pos="16.60001 0.0 -32.79999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="1317550592" pos="-42.29998 0.0 -35.79999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="806666304" pos="19.8 0.0 -12.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="562464256" pos="31.90001 0.0 -23.7" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="577669568" pos="28.1 0.0 -47.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="362894976" pos="-7.4 0.0 -23.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="1982716032" pos="-38.20001 0.0 0.7" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="1340555136" pos="-21.3 0.0 -42.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="147071760" pos="-48.77694 0.0 -24.73904" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="950198912" pos="-51.89998 0.0 -12.49999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="752268096" pos="-20.59995 0.0 2.3" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="979298688" pos="-11.05543 0.0 -38.09406" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="1509320704" pos="-4.4 0.0 -50.7" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms_arms.xml"/>
+				<instance id_="2042750720" pos="10.4 0.0 -50.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="826000640" pos="-20.9 0.0 -15.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="224933280" pos="-33.8 0.0 -16.3" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+				<instance id_="964093376" pos="-32.15298 0.0 -34.81196" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_arms.xml"/>
+			</group>
+		</group>
+		<group id_="263208640" open_="true" name="area3" pos="73.2 0.0 -92.9">
+			<voxscript id_="2055596544" open_="true" pos="-73.2 0.0 -57.1" texture="4" file="MOD/demo/map/ground.lua">
+				<parameters file="MOD/demo/map/sb_grass.png" scale="64"/>
+				<group id_="2015486080" open_="true" name="area edge" pos="74.7 1.6 75.2" rot="0.0 90.0 0.0">
+					<voxbox id_="425551232" pos="-74.9 0.0 75.2" size="1500 25 1" color="0.13 0.13 0.13"/>
+					<voxbox id_="1365198208" pos="75.10001 0.0 75.3" rot="0.0 90.0 0.0" size="433 25 1" color="0.13 0.13 0.13"/>
+					<voxbox id_="818201344" pos="75.10002 0.0 -37.79998" rot="0.0 90.0 0.0" size="455 25 1" color="0.13 0.13 0.13"/>
+				</group>
+				<group id_="1979111424" open_="true" name="zombies" pos="38.60001 2.6 107.60001" rot="0.0 -30.0 0.0">
+					<instance id_="179579600" pos="11.5 0.0 11.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="689808512" pos="2.5 -0.0 14.6" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1462656128" pos="-9.9 -0.0 11.5" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="869453632" pos="5.8 -0.0 7.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="2080174080" pos="-11.8 -0.0 2.7" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="262553248" pos="-2.7 0.0 9.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1335377536" pos="-15.9 0.0 12.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="127016520" pos="16.5 0.0 4.6" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="533692224" pos="23.4 0.0 6.6" rot="0.0 -180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1108674688" pos="-6.5 -0.0 -0.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="2047469568" pos="16.9 0.0 11.3" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="909826304" pos="22.4 0.0 13.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="446655104" pos="-0.1 -0.0 1.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="736407424" pos="9.4 -0.0 2.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+				</group>
+				<group id_="1201413760" open_="true" name="zombies" pos="96.30003 2.6 115.20001" rot="0.0 20.0 0.0">
+					<instance id_="1643415552" pos="11.5 0.0 11.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1699452160" pos="2.5 -0.0 14.6" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="601329472" pos="-9.9 -0.0 11.5" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="705800256" pos="5.8 -0.0 7.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1440044928" pos="-11.8 -0.0 2.7" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="503609344" pos="-2.7 0.0 9.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="287851680" pos="-15.9 0.0 12.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1045559616" pos="16.5 0.0 4.6" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="8585740" pos="23.4 0.0 6.6" rot="0.0 -180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="601263936" pos="-6.5 -0.0 -0.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1870511616" pos="16.9 0.0 11.3" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="415982368" pos="22.4 0.0 13.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="871485376" pos="-0.1 -0.0 1.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1804906112" pos="9.4 -0.0 2.8" rot="0.0 -180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+				</group>
+				<group id_="1790159616" open_="true" name="zombies" pos="68.60004 2.6 21.60001" rot="0.0 0.0 0.0">
+					<instance id_="147464992" pos="41.0 0.0 63.10001" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1251355264" pos="-50.0 0.0 53.3" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1623229184" pos="-25.2 0.0 28.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="96671504" pos="28.3 0.0 14.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1394494592" pos="-40.1 0.0 38.1" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1434080768" pos="-39.20001 0.0 19.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1652722176" pos="-37.2 0.0 52.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="975825088" pos="49.5 0.0 39.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="841074816" pos="48.1 0.0 22.1" rot="0.0 -180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1755947648" pos="-20.3 0.0 10.1" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1106249600" pos="34.2 0.0 41.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="399335232" pos="53.5 0.0 57.00001" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="399990624" pos="-0.1 0.0 12.6" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="130162440" pos="21.0 0.0 33.0" rot="0.0 -180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+				</group>
+				<instance id_="138486016" pos="87.90002 1.9 87.70002" rot="0.0 0.0 0.0" file="MOD/demo/assets/vehicles/land/van.xml"/>
+				<instance id_="507935008" pos="72.00001 1.9 74.50001" rot="0.0 90.0 0.0" file="MOD/demo/assets/vehicles/land/van.xml"/>
+			</voxscript>
+			<group id_="158082480" open_="true" name="contraptions" pos="-10.1 1.6 21.9">
+				<instance id_="856280128" pos="8.1 1.6 -18.0" rot="0.0 0.0 0.0" file="MOD/prefabs/contraptions/contraption_flamer.xml"/>
+				<instance id_="1642039168" pos="8.2 1.6 6.9" rot="0.0 0.0 0.0" file="MOD/prefabs/contraptions/contraption_flamer.xml"/>
+				<group id_="32966620" open_="true" pos="-1.2 1.3 -3.7">
+					<instance id_="2124937856" pos="-5.2 5.1 2.20001" rot="90.0 -180.0 0.0" file="MOD/prefabs/contraptions/contraption_mace.xml"/>
+					<instance id_="782875328" pos="1.0 5.1 -1.4" rot="90.0 0.0 0.0" file="MOD/prefabs/contraptions/contraption_mace.xml"/>
+					<instance id_="1183652352" pos="-5.2 5.1 -0.99999" rot="90.0 -180.0 0.0" file="MOD/prefabs/contraptions/contraption_mace.xml"/>
+					<instance id_="1296184576" pos="1.0 5.1 -4.6" rot="90.0 0.0 0.0" file="MOD/prefabs/contraptions/contraption_mace.xml"/>
+				</group>
+				<group id_="1378044032" open_="true" pos="24.4 0.0 -4.4">
+					<group id_="2049894528" open_="true" name="instance=MOD/prefabs/contraptions/contraption_mace.xml" pos="-3.9 1.0 0.1" rot="0.0 0.0 0.0">
+						<script id_="1547792640" open_="true" name="contraption_mace" pos="0 0 0" file="MOD/prefabs/contraptions/contraption_mace.lua">
+							<body id_="1346191616" open_="true" pos="0.0 -0.9 0.0" dynamic="false">
+								<vox id_="1994316672" tags="unbreakable" pos="0.0" file="MOD/prefabs/contraptions/contraption_mace.vox" object="base"/>
+							</body>
+							<body id_="293946912" tags="unbreakable" pos="0.0 0.4 3.8" rot="0.0 -90.0 0.0"/>
+							<body id_="805945408" open_="true" tags="unbreakable" pos="4.5 0.4 0.0" rot="0.0 0.0 0.0">
+								<vox id_="1758700416" open_="true" pos="0.0" density="10" prop="true" file="MOD/prefabs/contraptions/contraption_mace.vox" object="ball">
+									<rope id_="1091109888" open_="true" pos="-0.4 0.0 -0.55" rot="0.0 -90.0 0.0" size="0.2" slack="0" strength="-1">
+										<location id_="2112223104" pos="0.5 0.6 2.0" rot="0.0 0.0 0.0"/>
+										<location id_="1330527488" pos="0.55 0.6 -0.4" rot="0.0 0.0 0.0"/>
+									</rope>
+								</vox>
+							</body>
+							<body id_="1936772480" open_="true" tags="unbreakable" pos="-4.4 0.4 0.0" rot="0.0 -180.0 0.0">
+								<vox id_="1112606976" open_="true" pos="0.0" density="10" prop="true" file="MOD/prefabs/contraptions/contraption_mace.vox" object="ball">
+									<rope id_="726969664" open_="true" pos="-0.4 0.0 -0.55" rot="0.0 -90.0 0.0" size="0.2" slack="0" strength="-1">
+										<location id_="1967052032" pos="0.5 0.6 2.0" rot="0.0 0.0 0.0"/>
+										<location id_="919722816" pos="0.55 0.6 -0.4" rot="0.0 0.0 0.0"/>
+									</rope>
+								</vox>
+							</body>
+							<body id_="1047525824" open_="true" pos="1.0 0.8 0.0" dynamic="true">
+								<vox id_="569149376" open_="true" tags="maceHead unbreakable" pos="-1.0 0.0 0.0" density="50" prop="true" file="MOD/prefabs/contraptions/contraption_mace.vox" object="head">
+									<joint id_="547914368" tags="maceHeadJoint" pos="0.05 0.0 -0.05" rot="90.0 180.0 0.0" type="hinge"/>
+								</vox>
+							</body>
+							<body id_="493581728" open_="true" tags="unbreakable" pos="-0.0 0.4 4.4" rot="0.0 -90.0 0.0">
+								<vox id_="27461260" open_="true" pos="0.0" density="10" prop="true" file="MOD/prefabs/contraptions/contraption_mace.vox" object="ball">
+									<rope id_="338055328" open_="true" pos="-0.4 0.0 -0.55" rot="0.0 -90.0 0.0" size="0.2" slack="0" strength="-1">
+										<location id_="713599488" pos="0.5 0.6 2.0" rot="0.0 0.0 0.0"/>
+										<location id_="458255680" pos="0.55 0.6 -0.4" rot="0.0 0.0 0.0"/>
+									</rope>
+								</vox>
+							</body>
+							<body id_="1283797504" open_="true" tags="unbreakable" pos="0.1 0.4 -4.4" rot="0.0 90.0 0.0">
+								<vox id_="1199578624" open_="true" pos="0.0" density="10" prop="true" file="MOD/prefabs/contraptions/contraption_mace.vox" object="ball">
+									<rope id_="11862740" open_="true" pos="-0.4 0.0 -0.55" rot="0.0 -90.0 0.0" size="0.2" slack="0" strength="-1">
+										<location id_="59838020" pos="0.5 0.6 2.0" rot="0.0 0.0 0.0"/>
+										<location id_="683123392" pos="0.55 0.6 -0.4" rot="0.0 0.0 0.0"/>
+									</rope>
+								</vox>
+							</body>
+						</script>
+					</group>
+					<instance id_="752923520" pos="6.7 1.0 0.1" rot="0.0 0.0 0.0" file="MOD/prefabs/contraptions/contraption_mace.xml"/>
+				</group>
+				<vox id_="1168119424" pos="8.4 -0.6 -28.2" rot="10.0 -180.0 0.0" file="MOD/demo/mods/credits.vox" object="contraptions"/>
+			</group>
+			<trigger id_="869519168" tags="trig=grass" pos="4.0 -0.1 15.5" type="box" size="150 15 140"/>
+			<group id_="974710912" open_="true" name="zombies" pos="8.2 4.1 162.39999">
+				<instance id_="44632740" pos="-47.3 1.8 -26.7" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="797163008" pos="44.1 0.0 -29.5" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+				<instance id_="1260268672" pos="49.2 0.0 -50.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="1286746880" pos="-2.9 0.0 55.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+				<instance id_="1648920832" pos="34.8 0.0 13.6" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="1209213056" pos="42.6 0.0 -6.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+				<instance id_="1068367552" pos="31.90001 0.0 -23.7" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="357717312" pos="28.1 0.0 -47.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+				<instance id_="2081091584" pos="-19.8 0.0 -53.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="1558410112" pos="-54.4 0.0 -49.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+				<instance id_="781957760" pos="-30.8 0.0 -37.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="1986648448" pos="-56.6 0.0 42.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+				<instance id_="1457937280" pos="18.1 0.0 42.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="1036384000" pos="29.6 0.0 36.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+				<instance id_="1952502144" pos="43.0 0.0 28.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="203239536" pos="-19.7 0.0 32.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+				<instance id_="995093824" pos="-32.9 0.0 34.0" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="486044640" pos="-20.9 0.0 -15.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+				<instance id_="1399672192" pos="-39.9 0.0 -10.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier_swat.xml"/>
+				<instance id_="1878704128" pos="-3.4 0.0 35.5" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_soldier.xml"/>
+			</group>
+		</group>
+		<group id_="327372288" open_="true" name="area4" pos="-76.9 0.0 -92.9">
+			<voxscript id_="991292480" open_="true" pos="-73.10001 0.0 -57.1" texture="4" file="MOD/demo/map/ground.lua">
+				<parameters file="MOD/demo/map/sb_grass.png" scale="64"/>
+				<group id_="2074013312" open_="true" name="area edge" pos="75.2 1.6 75.2" rot="0.0 -180.0 0.0">
+					<voxbox id_="1702270464" tags="invisible" pos="75.1 0.0 -74.8" size="1 25 1500" color="0.13 0.13 0.13"/>
+					<voxbox id_="1237329664" pos="-74.9 0.0 75.00002" size="1500 25 1" color="0.13 0.13 0.13"/>
+				</group>
+				<group id_="2015289472" pos="0.0 0.0 153.09999" rot="0.0 90.0 0.0"/>
+				<group id_="1254107904" open_="true" pos="75.10006 0.9 114.1" rot="0.0 -90.0 0.0">
+					<group id_="696034816" open_="true" name="roads" pos="47.80003 -1.0 75.10004" rot="0.0 180.0 0.0">
+						<vox id_="600411968" tags="unbreakable" pos="57.6 1.8 12.6" rot="0.0 90.0 0.0" texture="6" file="MOD/demo/vox/map.vox" object="road_corner"/>
+						<vox id_="1644595200" tags="unbreakable" pos="57.7 1.8 37.6" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<vox id_="232404832" tags="unbreakable" pos="57.7 1.8 62.6" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<vox id_="1291072512" tags="unbreakable" pos="57.7 1.8 87.60001" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<vox id_="625907008" tags="unbreakable" pos="57.6 1.8 136.09991" rot="0.0 180.0 0.0" texture="6" file="MOD/demo/vox/map.vox" object="road_corner"/>
+						<vox id_="49941480" tags="unbreakable" pos="57.7 1.8 112.60001" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<instance id_="2125462144" pos="50.7 1.9 124.0" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/semitruck-us.xml"/>
+						<instance id_="1013510528" pos="62.9 1.9 139.10001" rot="0.0 -90.0 0.0" file="MOD/demo/assets/vehicles/land/van.xml"/>
+						<instance id_="1509058560" pos="56.1 1.9 108.4" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/salooncar.xml"/>
+						<instance id_="13697860" pos="55.4 1.9 50.5" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/taskmaster-4wd.xml"/>
+						<instance id_="1391479680" pos="55.4 1.9 71.5" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/stationwagon.xml"/>
+						<instance id_="161687184" pos="65.7 1.9 93.3" rot="0.0 0.0 0.0" file="MOD/demo/assets/vehicles/land/crownzygot-xvc.xml"/>
+					</group>
+					<group id_="387406944" open_="true" name="construction vehicles" pos="47.80003 -0.9 75.10004" rot="0.0 180.0 0.0">
+						<instance id_="1950208256" pos="50.2 1.7 92.79999" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/dumptruck.xml"/>
+						<instance id_="2026627840" pos="48.59999 1.7 81.4" rot="0.0 150.0 0.0" file="MOD/demo/assets/vehicles/land/excavator.xml"/>
+						<instance id_="116399040" pos="49.29999 1.7 63.5" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/dumptruck.xml"/>
+						<instance id_="511277536" pos="37.10001 1.7 86.20001" rot="0.0 -90.0 0.0" file="MOD/demo/assets/vehicles/land/dumptruck.xml"/>
+						<instance id_="17433640" pos="50.4 1.9 43.3" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/crane.xml"/>
+					</group>
+					<group id_="1199709696" open_="true" name="construction props" pos="47.80003 -0.9 75.10004" rot="0.0 180.0 0.0">
+						<body id_="486372352" open_="true" pos="28.0 1.5 85.2">
+							<vox id_="1435915904" pos="-0.9 0.1 0.4" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="scaffold"/>
+						</body>
+						<body id_="1255680896" open_="true" pos="41.5 1.5 49.2" rot="0.0 90.0 0.0">
+							<vox id_="1868807552" pos="-1.3 0.1 -0.0" rot="0.0 -30.0 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="woodStack"/>
+						</body>
+						<body id_="276316640" open_="true" pos="34.6 1.5 41.3">
+							<vox id_="1845803008" pos="-3.5 0.1 7.3" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="woodStack"/>
+						</body>
+						<body id_="204222640" open_="true" pos="41.6 1.8 40.8" rot="0.0 90.0 0.0">
+							<vox id_="1640204032" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="skip"/>
+						</body>
+						<body id_="327044608" open_="true" pos="50.1 1.5 36.2">
+							<vox id_="1589869312" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="concreteBlock"/>
+						</body>
+						<group id_="868142848" name="pylons" pos="50.2 1.5 79.9">
+							<body id_="1206132608" open_="true" pos="1.89999 0.0 1.1">
+								<vox id_="1809297280" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="1372407552" open_="true" pos="1.89999 0.0 3.3">
+								<vox id_="296306336" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="121838864" open_="true" pos="1.89999 0.0 5.39999">
+								<vox id_="664051264" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="557155520" open_="true" pos="1.89999 0.0 7.9">
+								<vox id_="1254697728" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="1478582400" open_="true" pos="1.89999 0.0 -1.3">
+								<vox id_="1771152896" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="1103496960" open_="true" pos="1.29999 0.0 -4.0">
+								<vox id_="684368704" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="624727296" open_="true" pos="-0.10001 0.0 -6.0">
+								<vox id_="1511483520" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="1088947072" open_="true" pos="-1.80001 0.0 -7.8">
+								<vox id_="814268928" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+						</group>
+						<body id_="417227648" open_="true" pos="50.1 1.7 104.4" rot="0.0 0.0 0.0">
+							<vox id_="266289024" pos="0.0 0.1 0.0" texture="6" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="roadBlock"/>
+						</body>
+						<body id_="1505912576" open_="true" pos="51.7 1.7 101.9" rot="0.0 90.0 0.0">
+							<vox id_="1922484864" pos="0.0 0.1 0.0" texture="6" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="roadBlock"/>
+						</body>
+						<body id_="2065362048" open_="true" pos="42.2 3.5 77.7">
+							<vox id_="88085760" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="palletBricks"/>
+						</body>
+						<body id_="1705416320" open_="true" pos="42.2 1.5 77.7">
+							<vox id_="1243097216" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="palletBricks"/>
+						</body>
+						<body id_="1162941696" open_="true" pos="35.4 3.5 77.6">
+							<vox id_="1839445632" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="palletBricks"/>
+						</body>
+						<body id_="732475008" open_="true" pos="35.4 1.5 77.6">
+							<vox id_="2111305600" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="palletBricks"/>
+						</body>
+					</group>
+					<group id_="251280352" open_="true" name="construction site" pos="25.10002 1.0 -23.30005" rot="0.0 -90.0 0.0">
+						<body id_="2134113536" open_="true">
+							<vox id_="1402031616" pos="0 0 0" file="MOD/demo/mods/construction site/custom/custom.vox"/>
+						</body>
+						<voxbox id_="2006244992" pos="-6.8 -1.0 2.6" texture="6" size="300 10 200" color="0.2 0.2 0.2"/>
+					</group>
+					<group id_="933486208" name="construction site" pos="25.10001 1.0 13.99998" rot="0.0 -90.0 0.0">
+						<voxbox id_="81400680" pos="-6.8 -1.0 2.6" texture="6" size="300 10 200" color="0.2 0.2 0.2"/>
+						<vehicle id_="2146828288" open_="true" name="van1_yellow" pos="21.7 0.0 6.5" rot="0.0 180.0 0.0" driven="false" sound="van" spring="0.5" damping="0.7" topspeed="70" acceleration="4" strength="2" antispin="1" antiroll="0.25" steerassist="0.0">
+							<body id_="94049904" open_="true" pos="-0.1 0.8 -0.4" rot="0.0 0.0 0.0" dynamic="true">
+								<vox id_="1916061952" open_="true" pos="0.05 -0.5 0.2" rot="0.0 180.0 0.0" density="1.2" strength="2" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="body">
+									<location id_="1282421120" tags="exhaust" pos="-0.5 0.1 -2.5" rot="0.0 180.0 0.0"/>
+									<light id_="1402949248" pos="0.95 1.2 -2.5" rot="180.0 0.0 180.0" type="area" color="1 .1 .1" size="0.1 0.2" unshadowed="0.3" glare="0.2"/>
+									<light id_="1520265856" pos="0.95 1.0 -2.5" rot="180.0 0.0 180.0" type="area" size="0.1 0.2" unshadowed="0.3"/>
+									<light id_="359880128" pos="-0.85 1.2 -2.5" rot="180.0 0.0 180.0" type="area" color="1 .1 .1" size="0.1 0.2" unshadowed="0.3" glare="0.2"/>
+									<light id_="1160582272" pos="-0.85 1.0 -2.5" rot="180.0 0.0 180.0" type="area" size="0.1 0.2" unshadowed="0.3"/>
+									<light id_="1714788608" pos="-0.75 0.95 2.4" rot="0.0 0.0 0.0" type="cone" color="1 .9 .8" scale="20" angle="90" penumbra="30" size="0.1" unshadowed="0.3" glare="0.3"/>
+									<light id_="1068957376" pos="0.85 0.95 2.4" rot="0.0 0.0 0.0" type="cone" color="1 .9 .8" scale="20" angle="90" penumbra="30" size="0.1" unshadowed="0.3" glare="0.3"/>
+									<location id_="1439586048" tags="vital" pos="0.05 0.75 1.9"/>
+									<location id_="1650493824" tags="player" pos="0.5 1.6 0.9" rot="0.0 0.0 0.0"/>
+								</vox>
+								<wheel id_="1813622912" name="bl" pos="-0.75 -0.45 1.75" drive="0" travel="-0.1 0.2">
+									<vox id_="752202560" pos="-0.1 -0.35 -0.05" rot="0.0 180.0 0.0" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="wheel_bl"/>
+								</wheel>
+								<wheel id_="1280651648" name="br" pos="0.8 -0.45 1.75" drive="0" travel="-0.1 0.2">
+									<vox id_="375544192" pos="0.15 -0.35 -0.05" rot="0.0 180.0 0.0" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="wheel_br"/>
+								</wheel>
+								<wheel id_="361518656" name="fl" pos="-0.75 -0.45 -1.65" drive="1" steer="1" travel="-0.1 0.2">
+									<vox id_="994045184" pos="-0.1 -0.35 -0.05" rot="0.0 180.0 0.0" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="wheel_fl"/>
+								</wheel>
+								<wheel id_="1862646784" name="fr" pos="0.75 -0.45 -1.65" drive="1" steer="1" travel="-0.1 0.2">
+									<vox id_="2043602688" pos="0.2 -0.35 -0.05" rot="0.0 -180.0 0.0" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="wheel_fr"/>
+								</wheel>
+							</body>
+						</vehicle>
+						<vox id_="1763419264" pos="0 0 0" file="MOD/demo/mods/construction site/custom/custom.vox"/>
+					</group>
+				</group>
+				<group id_="644454848" open_="true" name="trees" pos="0.0 -1.6 153.09999" rot="0.0 90.0 0.0">
+					<vox id_="1582004480" pos="25.59999 3.2 123.3" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="1928055680" pos="25.59999 3.2 22.0" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="489911488" pos="135.09999 3.2 124.70001" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="1326464000" pos="133.79997 3.2 23.30001" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="1902822784" pos="88.6 3.2 102.09999" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="890688576" pos="73.6 3.2 107.69999" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="1954861568" pos="78.1 3.2 30.89999" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="2119367040" pos="85.59998 3.2 52.49999" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="307579232" pos="89.39999 3.2 73.19999" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="1693750272" pos="72.3 3.2 79.89999" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="407265568" pos="81.89999 3.2 120.2" texture="4" file="MOD/demo/assets/nature/tree-large.vox"/>
+					<vox id_="1218781824" pos="87.7 3.2 117.2" texture="4" file="MOD/demo/assets/nature/bushes.vox" object="medium"/>
+					<vox id_="1142952064" pos="74.89999 3.2 89.09998" texture="4" file="MOD/demo/assets/nature/bushes.vox" object="medium"/>
+					<vox id_="1319189120" pos="89.7 3.2 27.69999" texture="4" file="MOD/demo/assets/nature/bushes.vox" object="medium"/>
+					<vox id_="2048714880" pos="90.39999 3.2 85.99998" texture="4" file="MOD/demo/assets/nature/bushes.vox" object="medium"/>
+					<vox id_="864538112" pos="73.59999 3.2 61.99998" texture="4" file="MOD/demo/assets/nature/bushes.vox" object="medium"/>
+					<vox id_="130424600" pos="68.2 3.2 48.79999" texture="4" file="MOD/demo/assets/nature/bushes.vox" object="medium"/>
+				</group>
+				<group id_="926604544" open_="true" name="zombies" pos="104.60008 2.0 67.39992" rot="0.0 0.0 0.0">
+					<instance id_="1078460672" pos="-57.89997 0.0 -43.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="70979824" pos="-7.6 0.0 -4.0" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="368990208" pos="0.7 0.0 -37.3" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="1494574208" pos="-72.89999 0.0 0.00001" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1091830912" pos="-42.29998 0.0 -35.79999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="1581086976" pos="19.8 0.0 -12.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1562014848" pos="31.90001 0.0 -23.7" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="150086592" pos="28.1 0.0 -47.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="758232256" pos="-7.4 0.0 -23.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="1705612928" pos="-36.30001 0.0 8.5" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="2138308096" pos="-21.3 0.0 -42.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="703571904" pos="-59.29998 0.0 -28.99999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="728149376" pos="-51.89998 0.0 -12.49999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="1711642624" pos="-20.59995 0.0 2.3" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="650812224" pos="-56.69998 0.0 6.30001" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="2104751616" pos="-76.69999 0.0 -38.09999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="903272256" pos="15.9 0.0 14.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="1100678784" pos="-20.9 0.0 -15.8" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1018557120" pos="-33.8 0.0 -16.3" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="166930384" pos="-73.39999 0.0 -19.89999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="106174800" pos="-75.29997 0.1 -13.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="550994752" pos="-25.0 0.1 25.9" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1633191296" pos="-16.7 0.1 -7.4" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="856280128" pos="-90.29999 0.1 29.90001" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1635812864" pos="-59.69998 0.1 -5.89999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="71504144" pos="2.4 0.1 17.1" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1076691072" pos="14.50001 0.1 6.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="1571976960" pos="10.7 0.1 -17.50001" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="626169152" pos="-24.8 0.1 6.5" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="700032768" pos="-53.70001 0.1 38.39999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="1761125376" pos="-38.7 0.1 -13.0" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="2105210368" pos="-76.69998 0.1 0.90001" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="2099377280" pos="-69.29998 0.1 17.40001" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="646093312" pos="-37.99995 0.1 32.19999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="920378240" pos="-74.09998 0.1 36.2" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="729001408" pos="-94.09999 0.1 -8.19999" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="293881344" pos="-1.5 0.1 44.09998" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="1500145024" pos="-38.3 0.1 14.1" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+					<instance id_="2105144832" pos="-51.2 0.1 13.6" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie_scientist.xml"/>
+					<instance id_="760984960" pos="-90.79999 0.1 10.00001" rot="0.0 180.0 0.0" file="MOD/prefabs/zombie.xml"/>
+				</group>
+				<group id_="1039792128" open_="true" pos="75.10011 0.9 33.09991" rot="0.0 90.0 0.0">
+					<group id_="1999297664" open_="true" name="roads" pos="47.80003 -1.0 75.10004" rot="0.0 180.0 0.0">
+						<vox id_="138354944" tags="unbreakable" pos="57.7 1.8 14.1" rot="0.0 90.0 0.0" texture="6" file="MOD/demo/vox/map.vox" object="road_corner"/>
+						<vox id_="1098647040" tags="unbreakable" pos="57.8 1.8 38.69998" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<vox id_="687711232" tags="unbreakable" pos="57.8 1.8 62.6" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<vox id_="1858714368" tags="unbreakable" pos="57.8 1.8 87.60001" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<vox id_="1185159808" tags="unbreakable" pos="57.7 1.8 137.60001" rot="0.0 180.0 0.0" texture="6" file="MOD/demo/vox/map.vox" object="road_corner"/>
+						<vox id_="684827456" tags="unbreakable" pos="57.8 1.8 112.60001" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<vox id_="1112213760" tags="unbreakable" pos="80.89999 1.8 137.50005" rot="0.0 90.0 0.0" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<vox id_="590253248" tags="unbreakable" pos="94.30001 1.8 137.50005" rot="0.0 90.0 0.0" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<instance id_="1421234944" pos="50.7 1.9 124.0" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/semitruck-us.xml"/>
+						<instance id_="1885716864" pos="65.50001 1.9 115.90002" rot="0.0 0.0 0.0" file="MOD/demo/assets/vehicles/land/van.xml"/>
+						<instance id_="1808838400" pos="65.0 1.9 140.20001" rot="0.0 -90.0 0.0" file="MOD/demo/assets/vehicles/land/castanet-500l-gt.xml"/>
+						<instance id_="106305880" pos="65.50001 1.9 43.80001" rot="0.0 0.0 0.0" file="MOD/demo/assets/vehicles/land/castanet-500l-gt.xml"/>
+						<instance id_="111483536" pos="93.80002 1.9 15.50002" rot="0.0 -90.0 0.0" file="MOD/demo/assets/vehicles/land/van.xml"/>
+						<instance id_="1915734144" pos="100.5 1.9 139.00002" rot="0.0 -90.0 0.0" file="MOD/demo/assets/vehicles/land/van.xml"/>
+						<instance id_="1068891840" pos="56.30001 1.9 72.80002" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/van.xml"/>
+						<instance id_="799850176" pos="56.2 1.9 108.3" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/salooncar.xml"/>
+						<instance id_="508328256" pos="56.20001 1.9 29.3" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/salooncar.xml"/>
+						<instance id_="1292252160" pos="87.10001 1.9 6.2" rot="0.0 90.0 0.0" file="MOD/demo/assets/vehicles/land/salooncar.xml"/>
+						<instance id_="863161792" pos="55.9 1.9 55.6" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/taskmaster-4wd.xml"/>
+						<instance id_="1214521728" pos="65.7 1.9 70.89999" rot="0.0 0.0 0.0" file="MOD/demo/assets/vehicles/land/taskmaster-4wd.xml"/>
+						<instance id_="1805889152" pos="49.90001 1.9 15.5" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/stationwagon.xml"/>
+						<instance id_="391863648" pos="86.3 1.9 129.89999" rot="0.0 90.0 0.0" file="MOD/demo/assets/vehicles/land/stationwagon.xml"/>
+						<instance id_="552633280" pos="65.7 1.9 93.3" rot="0.0 0.0 0.0" file="MOD/demo/assets/vehicles/land/crownzygot-xvc.xml"/>
+						<vox id_="1374570368" tags="unbreakable" pos="95.80005 1.8 14.10005" rot="0.0 90.0 0.0" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+						<vox id_="1591835520" tags="unbreakable" pos="81.1 1.8 14.10005" rot="0.0 90.0 0.0" texture="6" file="MOD/demo/vox/map.vox" object="road_straight"/>
+					</group>
+					<group id_="1405964032" open_="true" name="construction vehicles" pos="47.80003 -0.9 75.10004" rot="0.0 180.0 0.0">
+						<instance id_="1131089280" pos="50.2 1.7 92.79999" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/dumptruck.xml"/>
+						<instance id_="479818336" pos="48.59999 1.7 81.4" rot="0.0 150.0 0.0" file="MOD/demo/assets/vehicles/land/excavator.xml"/>
+						<instance id_="324554080" pos="49.29999 1.7 63.5" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/dumptruck.xml"/>
+						<instance id_="707963072" pos="37.10001 1.7 86.20001" rot="0.0 -90.0 0.0" file="MOD/demo/assets/vehicles/land/dumptruck.xml"/>
+						<instance id_="2064575488" pos="49.4 1.9 42.2" rot="0.0 180.0 0.0" file="MOD/demo/assets/vehicles/land/crane.xml"/>
+					</group>
+					<group id_="557810944" open_="true" name="construction props" pos="47.80003 -0.9 75.10004" rot="0.0 180.0 0.0">
+						<body id_="630429248" open_="true" pos="28.0 1.5 85.2">
+							<vox id_="1987435008" pos="-0.9 0.1 0.4" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="scaffold"/>
+						</body>
+						<body id_="69603480" open_="true" pos="41.5 1.5 49.2" rot="0.0 90.0 0.0">
+							<vox id_="1279078656" pos="-1.3 0.1 -0.0" rot="0.0 -30.0 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="woodStack"/>
+						</body>
+						<body id_="166078368" open_="true" pos="34.6 1.5 41.3">
+							<vox id_="315706176" pos="-3.5 0.1 7.3" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="woodStack"/>
+						</body>
+						<body id_="1732877568" open_="true" pos="41.6 1.8 40.8" rot="0.0 90.0 0.0">
+							<vox id_="1030682048" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="skip"/>
+						</body>
+						<body id_="482833184" open_="true" pos="50.1 1.5 36.2">
+							<vox id_="67964976" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="concreteBlock"/>
+						</body>
+						<group id_="2117990656" name="pylons" pos="50.2 1.5 79.9">
+							<body id_="2145124224" open_="true" pos="1.89999 0.0 1.1">
+								<vox id_="1777707008" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="1618444800" open_="true" pos="1.89999 0.0 3.3">
+								<vox id_="426468768" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="676307264" open_="true" pos="1.89999 0.0 5.39999">
+								<vox id_="1624081152" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="277234208" open_="true" pos="1.89999 0.0 7.9">
+								<vox id_="464875232" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="2034427136" open_="true" pos="1.89999 0.0 -1.3">
+								<vox id_="952755008" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="828097920" open_="true" pos="1.29999 0.0 -4.0">
+								<vox id_="588483648" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="2027283328" open_="true" pos="-0.10001 0.0 -6.0">
+								<vox id_="2135751936" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+							<body id_="2070474112" open_="true" pos="-1.80001 0.0 -7.8">
+								<vox id_="612012544" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="trafficCone"/>
+							</body>
+						</group>
+						<body id_="758559936" open_="true" pos="50.1 1.7 104.4" rot="0.0 0.0 0.0">
+							<vox id_="848808512" pos="0.0 0.1 0.0" texture="6" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="roadBlock"/>
+						</body>
+						<body id_="231356192" open_="true" pos="52.1 1.7 101.9" rot="0.0 -90.0 0.0">
+							<vox id_="853986176" pos="0.0 0.1 0.0" texture="6" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="roadBlock"/>
+						</body>
+						<body id_="23659940" pos="51.7 2.0 101.9" rot="0.0 90.0 0.0"/>
+						<body id_="1932774656" open_="true" pos="42.2 3.5 77.7">
+							<vox id_="236927104" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="palletBricks"/>
+						</body>
+						<body id_="1537044096" open_="true" pos="42.2 1.5 77.7">
+							<vox id_="1246439680" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="palletBricks"/>
+						</body>
+						<body id_="587369472" open_="true" pos="35.4 3.5 77.6">
+							<vox id_="1812312064" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="palletBricks"/>
+						</body>
+						<body id_="321801408" open_="true" pos="35.4 1.5 77.6">
+							<vox id_="1679069312" pos="0.0 0.1 0.0" file="MOD/demo/mods/KRACKENS Construction Pack/KRACKENS Construction Pack/KRACKENS Construction Pack.vox" object="palletBricks"/>
+						</body>
+					</group>
+					<group id_="2003230080" open_="true" name="construction site" pos="25.10002 1.0 -23.30005" rot="0.0 -90.0 0.0">
+						<body id_="1608155008" open_="true">
+							<vox id_="1643415552" pos="0 0 0" file="MOD/demo/mods/construction site/custom/custom.vox"/>
+						</body>
+						<voxbox id_="20186320" pos="-6.8 -1.0 2.6" texture="6" size="300 10 200" color="0.2 0.2 0.2"/>
+					</group>
+					<group id_="1794354176" name="construction site" pos="25.10001 1.0 13.99998" rot="0.0 -90.0 0.0">
+						<voxbox id_="1856748160" pos="-6.8 -1.0 2.6" texture="6" size="300 10 200" color="0.2 0.2 0.2"/>
+						<vehicle id_="442198368" open_="true" name="van1_yellow" pos="21.7 0.0 6.5" rot="0.0 180.0 0.0" driven="false" sound="van" spring="0.5" damping="0.7" topspeed="70" acceleration="4" strength="2" antispin="1" antiroll="0.25" steerassist="0.0">
+							<body id_="1169168000" open_="true" pos="-0.1 0.8 -0.4" rot="0.0 0.0 0.0" dynamic="true">
+								<vox id_="2142109312" open_="true" pos="0.05 -0.5 0.2" rot="0.0 180.0 0.0" density="1.2" strength="2" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="body">
+									<location id_="138158320" tags="exhaust" pos="-0.5 0.1 -2.5" rot="0.0 180.0 0.0"/>
+									<light id_="1268985472" pos="0.95 1.2 -2.5" rot="180.0 0.0 180.0" type="area" color="1 .1 .1" size="0.1 0.2" unshadowed="0.3" glare="0.2"/>
+									<light id_="673095808" pos="0.95 1.0 -2.5" rot="180.0 0.0 180.0" type="area" size="0.1 0.2" unshadowed="0.3"/>
+									<light id_="618042176" pos="-0.85 1.2 -2.5" rot="180.0 0.0 180.0" type="area" color="1 .1 .1" size="0.1 0.2" unshadowed="0.3" glare="0.2"/>
+									<light id_="630691392" pos="-0.85 1.0 -2.5" rot="180.0 0.0 180.0" type="area" size="0.1 0.2" unshadowed="0.3"/>
+									<light id_="1984420096" pos="-0.75 0.95 2.4" rot="0.0 0.0 0.0" type="cone" color="1 .9 .8" scale="20" angle="90" penumbra="30" size="0.1" unshadowed="0.3" glare="0.3"/>
+									<light id_="609521984" pos="0.85 0.95 2.4" rot="0.0 0.0 0.0" type="cone" color="1 .9 .8" scale="20" angle="90" penumbra="30" size="0.1" unshadowed="0.3" glare="0.3"/>
+									<location id_="789167168" tags="vital" pos="0.05 0.75 1.9"/>
+									<location id_="818070272" tags="player" pos="0.5 1.6 0.9" rot="0.0 0.0 0.0"/>
+								</vox>
+								<wheel id_="1690276608" name="bl" pos="-0.75 -0.45 1.75" drive="0" travel="-0.1 0.2">
+									<vox id_="21038340" pos="-0.1 -0.35 -0.05" rot="0.0 180.0 0.0" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="wheel_bl"/>
+								</wheel>
+								<wheel id_="377707008" name="br" pos="0.8 -0.45 1.75" drive="0" travel="-0.1 0.2">
+									<vox id_="432957248" pos="0.15 -0.35 -0.05" rot="0.0 180.0 0.0" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="wheel_br"/>
+								</wheel>
+								<wheel id_="2087383424" name="fl" pos="-0.75 -0.45 -1.65" drive="1" steer="1" travel="-0.1 0.2">
+									<vox id_="773240896" pos="-0.1 -0.35 -0.05" rot="0.0 180.0 0.0" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="wheel_fl"/>
+								</wheel>
+								<wheel id_="1875099392" name="fr" pos="0.75 -0.45 -1.65" drive="1" steer="1" travel="-0.1 0.2">
+									<vox id_="1024848960" pos="0.2 -0.35 -0.05" rot="0.0 -180.0 0.0" file="MOD/demo/mods/construction site/custom/van1_yellow.vox" object="wheel_fr"/>
+								</wheel>
+							</body>
+						</vehicle>
+						<vox id_="449145632" pos="0 0 0" file="MOD/demo/mods/construction site/custom/custom.vox"/>
+					</group>
+					<group id_="524320" open_="true" name="credit signs" pos="-40.49998 -0.2 74.10001">
+						<vox id_="1074397184" pos="9.99999 0.2 0.00002" rot="10.0 0.0 0.0" file="MOD/demo/mods/credits.vox" object="const site"/>
+						<vox id_="1918814592" pos="-10.0 0.2 0.0" rot="10.0 0.0 0.0" file="MOD/demo/mods/credits.vox" object="const pack"/>
+					</group>
+					<group id_="1594850304" open_="true" name="border" pos="-49.5 -0.2 74.10001">
+						<voxbox id_="1780525184" pos="-34.1 1.1 -0.9" rot="10.0 0.0 0.0" texture="6" size="862 2 20" color="0.25 0.25 0.25 "/>
+						<voxbox id_="1678938240" pos="-33.8 1.1 -149.20001" rot="10.0 -90.0 0.0" texture="6" size="1485 2 20" color="0.25 0.25 0.25 "/>
+						<voxbox id_="728477120" pos="51.8 1.1 -0.8" rot="10.0 90.0 0.0" texture="6" size="1485 2 20" color="0.25 0.25 0.25 "/>
+					</group>
+				</group>
+			</voxscript>
+			<trigger id_="31393660" tags="trig=grass" pos="-0.7 -0.1 15.4" type="box" size="150 15 150"/>
+		</group>
+		<group id_="46074620" open_="true" pos="0.0 2.1 0.0">
+			<voxbox id_="335761408" pos="2.25 -0.5 0.0" rot="0.0 -90.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="1118374528" pos="0.05 -0.5 2.3" rot="0.0 180.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="388324512" pos="-0.45 -0.5 -2.8" rot="0.0 0.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="1738710656" pos="-0.45 -0.5 -150.00009" rot="0.0 0.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="1870642688" pos="-2.65 -0.5 -0.0" rot="0.0 90.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="1488020224" pos="144.65009 -0.5 0.0" rot="0.0 90.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="887411584" pos="-0.04992 -0.5 -144.90002" rot="0.0 180.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="1299723776" pos="-149.95033 -0.5 0.30022" rot="0.0 90.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="1372800896" pos="-144.84998 -0.5 -0.10001" rot="0.0 -90.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="69341320" pos="0.25041 -0.5 149.90067" rot="0.0 180.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="733195968" pos="-0.14992 -0.5 145.00002" rot="0.0 0.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+			<voxbox id_="2061822848" pos="149.8503 -0.5 -0.10028" rot="0.0 -90.0 0.0" size="1500 2 50" material="unphysical" color="0.15 0.4 0.15" pbr="emissive=8"/>
+		</group>
+	</group>
+	<group id_="1732943104" open_="true" name="hub" pos="72.90006 1.4 -162.39998">
+		<group id_="1548448000" open_="true" name="bounds">
+			<group id_="1011609920" open_="true" pos="-0.1 -0.1 12.1">
+				<vox id_="174074240" pos="0.0 0.05 -0.2" rot="0.0 -180.0 0.0" file="MOD/demo/vox/signs.vox" object="cheejin"/>
+				<vox id_="1750311296" pos="0.0 6.05 0.0" rot="0.0 180.0 0.0" file="MOD/demo/vox/signs.vox" object="info"/>
+				<vox id_="171059392" pos="0.1 0.05 0.4" rot="0.0 0.0 0.0" file="MOD/demo/vox/signs.vox" object="cheejin"/>
+			</group>
+			<voxbox id_="1897907328" pos="-36.1 0.3 -35.1" texture="6" size="700 1 500" color="0.05 0.05 0.05"/>
+			<vox id_="2019287424" pos="-23.30001 7.4 -33.7" rot="0.0 0.0 0.0" file="MOD/demo/vox/signs.vox" object="avf"/>
+		</group>
+		<group id_="280707808" open_="true" name="instance=MOD/demo/assets/vehicles/land/crownzygot-xvc.xml" pos="-12.0 0.4 -2.5" rot="0.0 -160.0 0.0">
+			<vehicle id_="1400196608" open_="true" pos="0.0 0.0 0.0" rot="0.0 0.0 0.0" driven="false" sound="racingcar" spring="1.1" topspeed="120" acceleration="15" strength="10" antispin="0" antiroll="0.4" difflock=".2" steerassist="0.4" friction="2.2">
+				<body id_="1514039552" open_="true" pos="-0.05002 0.3 -0.45" rot="0.0 0.0 0.0" dynamic="true">
+					<vox id_="691053760" open_="true" pos="0.05 -0.1 0.45" rot="0 180 0" density="1.5" strength="2" file="MOD/demo/assets/vehicles/land/crownzygot-xvc.vox" object="body">
+						<light id_="1642235776" pos="0.65 0.45 -2.3" rot="0.0 -180.0 0.0" type="area" color="1 .1 .1" size="0.3 0.1" unshadowed="0.3" glare="0.2"/>
+						<light id_="417620864" pos="-0.55 0.45 -2.3" rot="0.0 -180.0 0.0" type="area" color="1 .1 .1" size="0.3 0.1" unshadowed="0.3" glare="0.2"/>
+						<light id_="461991456" pos="0.7 0.55 -2.3" rot="0.0 180.0 0.0" type="area" color="1 1 1" size="0.2 0.1" unshadowed="0.2"/>
+						<light id_="2076307200" pos="-0.6 0.55 -2.3" rot="0.0 180.0 0.0" type="area" size="0.2 0.1" unshadowed="0.2"/>
+						<light id_="1159271552" pos="0.9 0.35 2.3" rot="0.0 0.0 0.0" type="cone" color="1 .9 .8" scale="20" angle="90" penumbra="30" size="0.1" unshadowed="0.2" glare="0.3"/>
+						<light id_="63311640" pos="-0.8 0.35 2.3" rot="0.0 0.0 0.0" type="cone" color="1 .9 .8" scale="20" angle="90" penumbra="30" size="0.1" unshadowed="0.2" glare="0.3"/>
+						<location id_="764196416" tags="exhaust" pos="0.5 0.1 -2.4" rot="-180.0 360.0 -180.0"/>
+						<location id_="485913568" tags="vital" pos="0.05 0.55 1.4" rot="-180.0 360.0 -180.0"/>
+						<location id_="1845016576" tags="player" pos="0.35 1.0 -0.05" rot="0.0 0.0 0.0"/>
+					</vox>
+					<wheel id_="753251200" open_="true" name="bl" pos="-0.64999 0.05 1.8" drive="1" travel="-0.1 0.1">
+						<vox id_="1799204096" pos="-0.1 -0.35 -0.05" rot="0.0 -180.0 0.0" file="MOD/demo/assets/vehicles/land/crownzygot-xvc.vox" object="wheel_bl"/>
+					</wheel>
+					<wheel id_="1275408384" open_="true" name="br" pos="0.75001 0.05 1.8" drive="1" travel="-0.1 0.1">
+						<vox id_="1857731328" pos="0.1 -0.35 -0.05" rot="0 180 0" file="MOD/demo/assets/vehicles/land/crownzygot-xvc.vox" object="wheel_br"/>
+					</wheel>
+					<wheel id_="773830784" open_="true" name="fl" pos="-0.64999 0.05 -1.1" drive="1" steer="0.7" travel="-0.1 0.1">
+						<vox id_="1431000320" pos="-0.1 -0.35 -0.05" rot="0 180 0" file="MOD/demo/assets/vehicles/land/crownzygot-xvc.vox" object="wheel_fl"/>
+					</wheel>
+					<wheel id_="1541631872" open_="true" name="fr" pos="0.75001 0.05 -1.1" drive="1" steer="0.7" travel="-0.1 0.1">
+						<vox id_="255933696" pos="0.1 -0.35 -0.05" rot="0.0 -180.0 0.0" file="MOD/demo/assets/vehicles/land/crownzygot-xvc.vox" object="wheel_fr"/>
+					</wheel>
+				</body>
+			</vehicle>
+		</group>
+		<group id_="1149178368" open_="true" name="vehicles" pos="-15.6 -0.1 -23.0" rot="0.0 -90.0 0.0">
+			<group id_="1798024320" open_="true" name="shredozer" pos="0.7 -0.3 -14.8" rot="0.0 90.0 0.0">
+				<voxbox id_="779598272" open_="true" pos="-10.0 0.5 -11.6" texture="6" size="200 10 200" color="0.13 0.13 0.13">
+					<vox id_="1028846912" pos="10.0 -0.35 20.4" rot="30.0 0.0 0.0" file="MOD/demo/mods/credits.vox" object="shredozer"/>
+				</voxbox>
+				<instance id_="1248930304" pos="-0.3 1.2 -1.6" rot="0.0 90.0 0.0" file="MOD/demo/mods/shred_dozer/shred_dozer.xml"/>
+			</group>
+			<group id_="2041964288" open_="true" name="hammertruck" pos="0.7 -0.1 -37.30002" rot="0.0 90.0 0.0">
+				<voxbox id_="833930944" open_="true" pos="-10.0 0.5 -11.6" texture="6" size="200 10 200" color="0.13 0.13 0.13">
+					<vox id_="998043136" pos="10.0 -0.35 20.4" rot="30.0 0.0 0.0" file="MOD/demo/mods/credits.vox" object="hammertruck"/>
+				</voxbox>
+				<instance id_="878694784" pos="0.1 1.6 -0.9" rot="0.0 -180.0 0.0" file="MOD/demo/mods/Hammertruck/main/monsterhammer.xml"/>
+			</group>
+			<group id_="664575616" open_="true" name="hammertruck" pos="41.9 0.1 16.0" rot="0.0 90.0 0.0">
+				<instance id_="1690211072" pos="0.1 0.8 -0.9" rot="0.0 -180.0 0.0" file="MOD/demo/mods"/>
+			</group>
+			<group id_="500922208" open_="true" name="tanks" pos="1.6 -0.3 7.69998" rot="0.0 90.0 0.0">
+				<instance id_="496072256" pos="-6.6 1.3 -1.1" rot="0.0 -90.0 0.0" file="MOD/demo/mods/AVF/prefabs/T90/t90.xml"/>
+				<instance id_="1532325248" pos="0.4 1.4 -2.0" rot="0.0 -180.0 0.0" file="MOD/demo/mods/AVF/prefabs/bmp2/bmp.xml"/>
+				<instance id_="1059060864" pos="6.9 1.4 -3.1" rot="0.0 -90.0 0.0" file="MOD/demo/mods/AVF/prefabs/zsu/zsu.xml"/>
+				<voxbox id_="1938345472" open_="true" pos="-10.0 0.5 -12.4" texture="6" size="200 10 200" color="0.13 0.13 0.13">
+					<vox id_="280249024" pos="10.0 -0.35 20.4" rot="30.0 0.0 0.0" file="MOD/demo/mods/credits.vox" object="avf"/>
+				</voxbox>
+			</group>
+		</group>
+	</group>
+	<group id_="1687065088" open_="true" name="scripts">
+		<script id_="1861794816" file="sandbox.lua"/>
+		<script id_="1862712320" name="main" file="main.lua"/>
+		<script id_="83694534" file="MOD/demo/scripts/info.lua"/>
+		<script id_="1603436160" name="glock 18" file="MOD/demo/mods/cglock/main.lua"/>
+		<script id_="325930432" name="m4a1" file="MOD/demo/mods/C M4A1/main.lua"/>
+		<script id_="1402097280" name="p90" file="MOD/demo/mods/C P90"/>
+	</group>
+	<layers/>
+</scene>
+
