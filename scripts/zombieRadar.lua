@@ -5,7 +5,7 @@
 
 local zr = {
     static = {
-        bounds = {       
+        bounds = {
             width = 250,
             height = 250,
         },
@@ -79,14 +79,14 @@ function drawRadar()
             for i = 1, #zombiesTable do
 
                 local z = zombiesTable[i]
-                local zTr = z.getTr()
+                local zTr = z.tr
 
                 -- z position relative to player transform.
                 local zToPlayerLocal = TransformToLocalPoint(pTr, VecSub(pTr.pos, VecSub(pTr.pos, zTr.pos)))
                 local zToPlayerVec = VecScale(zToPlayerLocal, zr.static.zoom)
 
                 -- Check if zombie is in bounds.
-                local zIsInRadarBounds = 
+                local zIsInRadarBounds =
                     zToPlayerVec[1] < zr.static.bounds.width/2.1 and
                     zToPlayerVec[3] < zr.static.bounds.height/2.1
 

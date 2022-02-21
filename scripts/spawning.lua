@@ -1,3 +1,5 @@
+local spawnTimer = { time = 0, rpm = 800}
+
 function initSpawnMenu()
 
     showSpawnMenu = false
@@ -17,15 +19,15 @@ function initSpawnMenu()
         },
 
         {
-            fileName = 'zombie_soldier',
-            name = 'Soldier',
-            selected = true,
-        },
-
-        {
             fileName = 'zombie_soldier_swat',
             name = 'SWAT',
             selected = true
+        },
+
+        {
+            fileName = 'zombie_soldier',
+            name = 'Soldier',
+            selected = true,
         },
 
     }
@@ -33,6 +35,8 @@ function initSpawnMenu()
 end
 
 function manageZombieSpawning()
+
+    checkBuiltInSpawning()
 
     if GetString('game.player.tool') == 'zombieController' and GetPlayerVehicle() == 0 then
 
@@ -56,32 +60,34 @@ end
 
 function spawnZombies()
 
-    if InputPressed('lmb') and not showSpawnMenu then
+    if InputDown('lmb') and not showSpawnMenu then
 
-        -- Choose random zombie to spawn.
-        local selectedZombies = {}
-        for i = 1, #selectedZombiePrefabs do
-            if selectedZombiePrefabs[i].selected then
-                table.insert(selectedZombies, i)
+        if spawnTimer.time <= 0 then
+            TimerResetTime(spawnTimer)
+
+            -- Choose random zombie to spawn.
+            local selectedZombies = {}
+            for i = 1, #selectedZombiePrefabs do
+                if selectedZombiePrefabs[i].selected then
+                    table.insert(selectedZombies, i)
+                end
             end
-        end
-        local prefabFilename = selectedZombiePrefabs[GetRandomIndex(selectedZombies)].fileName
+            local prefabFilename = selectedZombiePrefabs[GetRandomIndex(selectedZombies)].fileName
 
-        -- Spawn a random zombie from the selected zombies.
-        local hit, hitPos = raycastFromTransform(GetCameraTransform())
-        if hit then
+            -- Spawn a random zombie from the selected zombies.
+            local hit, hitPos = raycastFromTransform(GetCameraTransform())
+            if hit then
 
-            local entities = Spawn('MOD/prefabs/' .. prefabFilename .. '.xml', Transform(hitPos))
-            for key, entity in pairs(entities) do
+                local entities = Spawn('MOD/prefabs/' .. prefabFilename .. '.xml', Transform(hitPos))
+                for key, entity in pairs(entities) do
 
-                if GetEntityType(entity) == "body" then
+                    if GetEntityType(entity) == "body" then
 
-                    if HasTag(entity, 'ai_zombie') then
+                        if HasTag(entity, 'ai_zombie') then
 
-                        zombieId = zombieId + 1
-                        local zombie = createZombie(entity, zombieId, true)
+                            activateZombie(entity)
 
-                        table.insert(zombiesTable, zombie)
+                        end
 
                     end
 
@@ -91,6 +97,34 @@ function spawnZombies()
 
         end
 
+    end
+
+    TimerRunTime(spawnTimer)
+
+end
+
+--- Build a zombie object and associate it to a zombie body.
+function activateZombie(body)
+
+    zombieId = zombieId + 1
+    local zombie = createZombie(body, zombieId, true)
+    SetTag(body, 'zombie_activated')
+
+    table.insert(zombiesTable, zombie)
+
+end
+
+
+--- Check if a zombie was spawned through the spawner.
+function checkBuiltInSpawning()
+
+    local bodies = FindBodies('ai_zombie', true)
+    for key, body in pairs(bodies) do
+        if not HasTag(body, 'zombie_activated') then
+
+            activateZombie(body)
+
+        end
     end
 
 end

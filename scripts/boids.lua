@@ -24,7 +24,7 @@ function initBoids()
         radius = {
             align = 3,
             cohesion = 0,
-            separation = 3,
+            separation = 2,
             obstacle = 5,
         },
         strength = { -- Scaled boid output

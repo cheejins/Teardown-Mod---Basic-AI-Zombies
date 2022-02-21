@@ -17,6 +17,11 @@ zombieId = 0
 zombiesTable = {}
 
 
+config = {}
+config.zombieMovementEnabled = true
+
+
+
 function initZombies()
     local zombieBodies = FindBodies("ai_zombie", true)
     for i = 1, #zombieBodies do -- Store body references.
@@ -40,6 +45,7 @@ end
 
 
 function manageZombie(zombie)
+    zombie.update()
     if zombie.ai.isActive then
         if zombie:isAlive() then
             zombieProcessAi(zombie)
@@ -81,7 +87,7 @@ end
 
 function zombieProcessState(zombie)
 
-    local distZombieToPlayer = CalcDist(zombie.getTr().pos, zombie.ai.targetPos)
+    local distZombieToPlayer = CalcDist(zombie.tr.pos, zombie.ai.targetPos)
     if not zombie.isAlive() then -- zombie dead?
         zombie.setState(zombie.ai.states.dead)
 
@@ -159,13 +165,13 @@ end
 --[[ZOMBIE MOVEMENT]]
 function isZombieOnGround(zombie)
 
-    local zTr = zombie.getTr()
+    local zTr = zombie.tr
 
     local rcTr = Transform(VecAdd(zTr.pos, Vec(0,0.5,0)), QuatLookDown(zTr.pos))
     local hit, hitPos, hitShape = raycastFromTransform(rcTr, 0.5, 0.5, zombie.body)
 
     local isRcBodyZombie = HasTag(GetShapeBody(hitShape), "ai_zombie")
-    if hit and not isRcBodyZombie or IsPointInWater(zombie.getTr().pos) then
+    if hit and not isRcBodyZombie or IsPointInWater(zombie.tr.pos) then
         return true
     end
     return false
@@ -173,7 +179,7 @@ end
 
 
 function zombieKeepUpright(zombie, rotRate)
-    local zTr = zombie.getTr()
+    local zTr = zombie.tr
     zTr.rot[1] = zTr.rot[1] * 0.9999
     zTr.rot[3] = zTr.rot[3] * 0.9999
     zombie.setTr(zTr)
@@ -181,7 +187,7 @@ end
 
 
 function zombieLookAt(zombie, targetPos, rate)
-    local zTr = zombie.getTr()
+    local zTr = zombie.tr
     local zTrNew = TransformCopy(zTr)
 
     local lookRot = QuatLookAt(zTr.pos, targetPos)
@@ -196,7 +202,7 @@ end
 
 function zombieMoveWalk(zombie, speed, hopAmt, sideAmt, velDir)
     if velDir == nil then
-        local zTr = zombie.getTr()
+        local zTr = zombie.tr
         local zVel = GetBodyVelocity(zombie.body)
         local zFwdPos = TransformToParentPoint(zTr, Vec(sideAmt or 0, -hopAmt or -1, speed or 3))
         local zPos = zTr.pos
@@ -212,7 +218,7 @@ function zombieMoveJump(zombie, jumpForce)
     if jumpForce == nil then
         jumpForce = 5
     end
-    local zTr = zombie.getTr()
+    local zTr = zombie.tr
     local jumpVel = TransformToParentPoint(zTr, Vec(0, jumpForce, -jumpForce * 0.8))
     local jumpDir = VecSub(jumpVel, zTr.pos)
     SetBodyVelocity(zombie.body, jumpDir)
@@ -234,7 +240,7 @@ function zombieAttackPlayer(zombie)
             -- zombieLookAt(zombie, playerPos, 0.1)
 
             -- Hit values
-            local zTr = zombie.getTr()
+            local zTr = zombie.tr
             local zFwdPos = Vec(0,1,-2)
             local attackPos = TransformToParentPoint(zTr, zFwdPos)
             local zombieToPlayerDist = CalcDist(attackPos, playerPos)
@@ -271,19 +277,22 @@ function zombieChaseTarget(zombie, speed)
     if zombie.isVelLow() then
 
         -- Keep zombie stable
-        zombieLookAt(zombie, zombie.ai.targetPos, 0.3)
         zombieKeepUpright(zombie)
+        zombieLookAt(zombie, zombie.ai.targetPos, 0.3)
 
         if isZombieOnGround(zombie) then
             local zVel = GetBodyVelocity(zombie.body)
 
             zombie.movement.speed = speed
-            zombie.raycastNavigate()
 
-            -- if boidsData.timer.time <= 0 then -- Timed for performance.
-            --     boidsData.timer.time = 60/boidsData.timer.rpm
+            if not config.zombieMovementEnabled then
+                zombie.raycastNavigate()
                 zombie.boidsNavigate()
-            -- end
+                zombieMoveWalk(zombie, 0, zombie.movement.hop)
+            else
+                zombie.raycastNavigate()
+                zombie.boidsNavigate()
+            end
 
             local zVelRaycast = GetBodyVelocity(zombie.body)
             local zVelLerp = VecLerp(zVel, zVelRaycast, 0.5)

@@ -16,6 +16,10 @@ function createZombie(body, id, activated) -- Create zombie.
     zombie.body = body
     zombie.shapes = GetBodyShapes(zombie.body)
 
+    local zTr = GetBodyTransform(zombie.body)
+    zombie.tr = Transform(zTr.pos, MakeQuaternion(zTr.rot))
+
+
     --[[LIMBS]]
     zombie.limbs = {
         brain = nil,
@@ -30,6 +34,7 @@ function createZombie(body, id, activated) -- Create zombie.
     }
     for i = 1, #zombie.shapes do
         local shape = zombie.shapes[i]
+
         if HasTag(shape,"z_head") then
             zombie.limbs.head = shape
         elseif HasTag(shape,"z_brain") then
@@ -46,6 +51,8 @@ function createZombie(body, id, activated) -- Create zombie.
             zombie.limbs.legs = shape
         end
     end
+
+
 
 
     --[[AI]]
@@ -186,7 +193,7 @@ function createZombie(body, id, activated) -- Create zombie.
 end
 
 function addZombieAccessors(zombie)
-    zombie.getTr = function() return GetBodyTransform(zombie.body) end
+    -- zombie.getTr = function() return GetBodyTransform(zombie.body) end
     zombie.setTr = function(tr) return SetBodyTransform(zombie.body, tr) end
     zombie.getPos = function() return GetBodyTransform(zombie.body).pos end
     zombie.setState = function(state) zombie.ai.state = state end
@@ -222,9 +229,15 @@ end
 
 function addZombieFunctions(zombie)
 
+    zombie.update = function ()
+        local tr = GetBodyTransform(zombie.body)
+        zombie.tr.pos = tr.pos
+        zombie.tr.rot = tr.rot
+    end
+
     zombie.getTargetPlayer = function()
 
-        local zTr = zombie.getTr()
+        local zTr = zombie.tr
 
         local playerPos = GetPlayerTransform().pos
         local distZombieToPlayerPos = CalcDist(zTr.pos, playerPos)
@@ -253,10 +266,9 @@ function addZombieFunctions(zombie)
         DrawBodyOutline(zombie.body, c[1], c[2], c[3], a)
     end
 
-
     zombie.raycastNavigate = function ()
 
-        local zTr = zombie.getTr()
+        local zTr = zombie.tr
 
         -- Move values.
         local speed = zombie.movement.speed
@@ -345,10 +357,9 @@ function addZombieFunctions(zombie)
 
     end
 
+    zombie.boidsNavigate = function()
 
-    zombie.boidsNavigate = function ()
-
-        local zTr = zombie.getTr()
+        local zTr = zombie.tr
 
         -- Surrounding Aabb.
         local aabbZX = 2.5

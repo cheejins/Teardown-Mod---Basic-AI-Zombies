@@ -261,3 +261,46 @@ end
 function sfnTime(dec)
     return sfn(' '..GetTime(), dec or 4)
 end
+
+
+--[[TIMERS]]
+do
+
+    function TimerCreate(time, rpm)
+        return {time = time, rpm = rpm}
+    end
+
+    ---Run a timer and a table of functions.
+    ---@param timer table -- = {time, rpm}
+    ---@param functions table -- Table of functions that are called when time = 0.
+    ---@param runTime boolean -- Decrement time when calling this function.
+    function TimerRunTimer(timer, functions, runTime)
+        if timer.time <= 0 then
+            TimerResetTime(timer)
+
+            for i = 1, #functions do
+                functions[i]()
+            end
+
+        elseif runTime then
+            TimerRunTime(timer)
+        end
+    end
+
+    -- Only runs the timer countdown if there is time left.
+    function TimerRunTime(timer)
+        if timer.time > 0 then
+            timer.time = timer.time - GetTimeStep()
+        end
+    end
+
+    -- Set time left to 0.
+    function TimerEndTime(timer)
+        timer.time = 0
+    end
+
+    -- Reset time to start (60/rpm).
+    function TimerResetTime(timer)
+        timer.time = 60/timer.rpm
+    end
+end

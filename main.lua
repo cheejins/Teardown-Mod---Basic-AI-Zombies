@@ -8,6 +8,7 @@
 #include "scripts/zombie.lua"
 #include "scripts/zombieConstructor.lua"
 #include "scripts/zombieRadar.lua"
+#include "scripts/umf.lua"
 -- #include "mods/CGlock/main.lua"
 -- #include "mods/CM4A1/main.lua"
 -- #include "mods/CP90/main.lua"
@@ -61,7 +62,7 @@ function tick(dt)
     -- disableTools()
 
     -- Debug.
-    -- debugMod()
+    debugMod()
 
 end
 
@@ -88,6 +89,7 @@ end
 --[[DEBUG]]
 function debugMod()
     DebugWatch('#zombiesTable', #zombiesTable)
+    DebugWatch('config.zombieMovementEnabled', config.zombieMovementEnabled)
     for i = 1, #zombiesTable do
         local zombie = zombiesTable[i]
         DebugWatch("Zombie"..zombie.id.." state", zombie.ai.state)

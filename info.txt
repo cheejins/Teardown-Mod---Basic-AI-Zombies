@@ -1,6 +1,6 @@
 name = Basic Ai Zombies (Spawnable)
 author = Cheejins
-description = [noupload] A simple Ai Zombie mod. The zombies chase you, attack you, and can avoid basic obstacles. To kill a zombie, you have to either destroy its brain or break off enough of its body. I hope you enjoy this mod. There are many more AI mods to come in the future :)
+description =[noupload]SPAWNING: Use the zombie controller tool to spawn zombies.                 DEMO MAP: Select options >> Start Demo Map.
 tags = Gameplay, Map, Tool
 
 # Available tags (comma-separated):
