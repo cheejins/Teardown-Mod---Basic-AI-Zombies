@@ -1,0 +1,9 @@
+prefabs/zombie.xml : Civilian/ 1 zombie
+prefabs/zombie_scientist.xml : Scientist/ 1 zombie
+prefabs/zombie_soldier_swat.xml : SWAT/ 1 zombie
+prefabs/zombie_soldier.xml : Soldier/ 1 zombie
+
+prefabs/zombie_soldier.xml : .Quick Spawner / ___More options coming
+prefabs/zombie_soldier.xml : .Quick Spawner / __soon! Use the zombie
+prefabs/zombie_soldier.xml : .Quick Spawner / _controller tool to
+prefabs/zombie_soldier.xml : .Quick Spawner / spawn zombies quickly

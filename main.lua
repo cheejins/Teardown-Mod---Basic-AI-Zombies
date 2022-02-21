@@ -62,7 +62,7 @@ function tick(dt)
     -- disableTools()
 
     -- Debug.
-    debugMod()
+    -- debugMod()
 
 end
 

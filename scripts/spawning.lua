@@ -86,6 +86,8 @@ function spawnZombies()
                         if HasTag(entity, 'ai_zombie') then
 
                             activateZombie(entity)
+                            SetTag(entity, 'zombie_spawned')
+
 
                         end
 
@@ -120,7 +122,7 @@ function checkBuiltInSpawning()
 
     local bodies = FindBodies('ai_zombie', true)
     for key, body in pairs(bodies) do
-        if not HasTag(body, 'zombie_activated') then
+        if HasTag('zombie_spawned') and not HasTag(body, 'zombie_activated') then
 
             activateZombie(body)
 
